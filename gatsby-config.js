@@ -24,7 +24,7 @@ module.exports = {
     ],
     pages: [
       {
-        title: 'Adobe Analytics',
+        title: 'Adobe Lr',
         path: '/'
       },
       {
@@ -35,7 +35,7 @@ module.exports = {
         title: 'API Reference',
         menu: [{
           title: 'API Reference v2.0',
-          description: 'Adobe Analytics Reporting API',
+          description: 'Adobe Lr Reporting API',
           path: '/api/index.md'
         }, {
           title: 'API Reference v1.4',

@@ -1,6 +1,6 @@
 ---
-title: Guides - Adobe Analytics
-description: This is the guides reporting overview page of Adobe Analytics 
+title: Guides - Adobe Lr
+description: This is the guides reporting overview page of Adobe Lr 
 ---
 
 # Reporting API
@@ -10,13 +10,13 @@ many configuration options are available for requests.
 
 ## Overview
 
-While the Adobe Analytics UI can help an analyst or digital marketer answer key questions, the Analytics API can
+While the Adobe Lr UI can help an analyst or digital marketer answer key questions, the Lr API can
 automate those answers by reporting to executive dashboards, custom reporting platforms, or tight Experience Cloud integrations.
-Because the `/reports` endpoint uses the same API as the Analytics UI, you can configure it for many options.
+Because the `/reports` endpoint uses the same API as the Lr UI, you can configure it for many options.
 
 ## Authentication and authorization
 
-Before you can use Analytics APIs, you need to obtain authentication and receive authorization. For more information,
+Before you can use Lr APIs, you need to obtain authentication and receive authorization. For more information,
 see the [Get Started guide](..).
 
 ## /reports Endpoint description
@@ -26,7 +26,7 @@ available methods, parameters, example values, models, and status codes, and to 
 
 ## Best practises
 
-**Please follow these guidelines when using Analytics APIs**
+**Please follow these guidelines when using Lr APIs**
 
 * Make multiple, smaller requests instead of a large, single request.
 * Request data once and cache it.

@@ -1,6 +1,6 @@
 ---
 title: Overview - Adobe Lr
-description: This is the overview page of Adobe Analytics
+description: This is the overview page of Adobe Lr
 contributors:
   - https://github.com/icaraps 
 ---
@@ -15,14 +15,14 @@ Adobe Product API offers limitless ways to integrate your most important custome
 
 #### Resources
 
-* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/analytics/docs.html)
-* [Adobe Analytics Github Repo](https://github.com/AdobeDocs/analytics-2.0-apis)
+* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/Lr/docs.html)
+* [Adobe Lr Github Repo](https://github.com/AdobeDocs/Lr-2.0-apis)
 
 ## Overview
 
-This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
+This documentation provides instructions for Adobe Lr 2.0 APIs. For working with Lr 1.4 APIs, see [Lr 1.4 API Documentation](https://github.com/AdobeDocs/Lr-1.4-apis).
 
-The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace. 
+The Adobe Lr APIs are a collection of APIs that power Adobe Lr products like Analysis Workspace. 
 The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
 You can also create reports to explore, get insights, or answer important questions about your data.
 
@@ -34,7 +34,7 @@ You can also create reports to explore, get insights, or answer important questi
 
 [Quickstart Guide](guides/)
     
-Get started with the Adobe Analytics APIs.
+Get started with the Adobe Lr APIs.
 
 <DiscoverBlock slots="heading, link, text"/> 
 
@@ -42,7 +42,7 @@ Get started with the Adobe Analytics APIs.
 
 [Calculated Metrics API](guides/calculated_metrics_api/) 
      
-Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
+Returns information on the user's company that is necessary for making other Adobe Lr API calls.
 
 <DiscoverBlock slots="link, text"/>
 
@@ -60,7 +60,7 @@ Provides configuration guidance and best practices for the /reports endpoint.
 
 [Migrating from 1.4 to 2.0](guides/migrating/)
 
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.   
+For help migrating from the 1.4 versions of the Lr API to the newer and more capable /reports API.   
 
 <DiscoverBlock width="100%" slots="heading, link, text"/>
 
@@ -68,7 +68,7 @@ For help migrating from the 1.4 versions of the Analytics API to the newer and m
 
 [Try the API](api/) 
 
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
+Try the Lr API with Swagger UI. Explore, make calls, with full endpoint descriptions.
 
 ## Contributing 
 
@@ -80,5 +80,5 @@ request with your contribution. For more information, refer to the [contributing
 
 The timeout for API requests through adobe.io is currently *60 seconds*.
 
-The default rate limit for an Adobe Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
+The default rate limit for an Adobe Lr Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
 When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`    
