@@ -1,5 +1,5 @@
 ---
-title: Overview - Adobe Lightroom APi
+title: Overview - Adobe Lightroom API
 description: This is the overview page of Adobe Lightroom API
 contributors:
   - https://github.com/bagra98 
@@ -7,7 +7,7 @@ contributors:
 
 <Hero slots="image, heading, text" background="rgb(64, 34, 138)"/>
 
-![Hero image](../../static/hero.png)
+![Hero image](./hero.png)
 
 # Adobe Lightroom API
 
