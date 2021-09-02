@@ -2817,9 +2817,9 @@
                           "captureDate": "<image_capture_date>",
                           "importSource": {
                             "fileName": "<file_name>",
-                            "fileSize": <image_file_size>,
-                            "originalWidth": <image_width>,
-                            "originalHeight": <image_height>,
+                            "fileSize": "<image_file_size>",
+                            "originalWidth": "<image_width>",
+                            "originalHeight": "<image_height>",
                             "sha256": "<image_sha256>",
                             "importedOnDevice": "<import_device_name>",
                             "importedBy": "<import_account_id>",
@@ -2876,9 +2876,9 @@
                           "captureDate": "<image_capture_date>",
                           "importSource": {
                             "fileName": "<file_name>",
-                            "fileSize": <image_file_size>,
-                            "originalWidth": <image_width>,
-                            "originalHeight": <image_height>,
+                            "fileSize": "<image_file_size>",
+                            "originalWidth": "<image_width>",
+                            "originalHeight": "<image_height>",
                             "sha256": "<image_sha256>",
                             "importedOnDevice": "<import_device_name>",
                             "importedBy": "<import_account_id>",
@@ -2897,8 +2897,8 @@
                               "<video_aspect_ratio_numerator>",
                               "<video_aspect_ratio_denominator>"
                             ],
-                            "storageWidth": <video_storage_width>,
-                            "storageHeight": <video_storage_height>
+                            "storageWidth": "<video_storage_width>",
+                            "storageHeight": "<video_storage_height>"
                           },
                           "<key>": "<value>",
                           "develop": {
@@ -2942,8 +2942,7 @@
             }
           }
         }
-      },
-  
+      }
     },
     "components": {
       "responses": {
