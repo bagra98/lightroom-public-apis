@@ -96,6 +96,10 @@ module.exports = {
           {
             title: 'Common Data Model',
             path: '/guides/common_data_model/'
+          },
+          {
+            title: 'Links and Pagination',
+            path: '/guides/links_and_pagination/'
           }
         ]
       },

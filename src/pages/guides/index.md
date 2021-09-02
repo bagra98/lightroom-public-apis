@@ -1,32 +1,10 @@
 ---
-title: Guides - Adobe Lr
-description: This is the guides overview page of Adobe Lr 
+title: Using the Lightroom APIs
+description: This is the guides overview page of Lightroom 
+contributors:
+  - https://github.com/bagra98
 ---
 
 # Get Started
 
-To get started with Lr 2.0 APIs you must first decide whether your application will need
-an OAuth client or a JWT client.
-
-## Authentication
-
-There are multiple type of authentication for authenticating with the analytics APIs. General information
-about authenticating with Adobe's APIs is located here. Specific information related to authenticating
-with the analytics APIs is available in the sections below
-
-## OAuth
-
-Use an OAuth client if you are creating an application that requires an end use to authenticate before
-calling the Adobe Lr APIs. The OAuth tokens expire after 24 hours and the end user must then
-re-authenticate before they will be able to call the APIs. To authenticate with an OAuth client, you first
-create an OAuth client on the [Adobe I/O Console](https://console.adobe.io).
-
-<InlineAlert variant="info" slots="text"/>
-
-The refresh token grant type is automatically added to OAuth clients created after September 18, 2019
-
-## JWT
-
-A JWT client is best if you are creating an application that needs to programmatically authenticate calls to 
-the Adobe Lr APIs. A new JWT token can be generated whenever the old one is about to expire so your application
-can continue to make API calls.  
+This is the guide to get started with Lightroom APIs.
