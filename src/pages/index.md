@@ -7,7 +7,7 @@ contributors:
 
 <Hero slots="image, heading, text" background="rgb(64, 34, 138)"/>
 
-![Hero image](../static/hero.png)
+![Hero image](../../static/hero.png)
 
 # Adobe Lightroom API
 
