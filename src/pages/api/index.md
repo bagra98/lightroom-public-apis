@@ -1,5 +1,5 @@
 ---
 title: Lightroom API Documentation
 description: Adobe Lightroom API Documentation
-openAPISpec: https://raw.githubusercontent.com/bagra98/lightroom-public-apis/main/static/swagger_old.json
+openAPISpec: https://raw.githubusercontent.com/AdobeDocs/cis-photoshop-api-docs/main/static/swagger.json
 --- 
