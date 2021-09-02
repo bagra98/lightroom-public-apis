@@ -17,7 +17,7 @@ Build applications that work with Lightroom
 
 #### Resources
 
-* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/Lightroom/docs.html)
+* [API Documentation](https://www.adobe.io/apis/creativecloud/lightroom/apidocs.html)
 * [Adobe Lightroom Github Repo](https://github.com/bagra98/lightroom-public-apis)
 
 ## Welcome to Lightroom API!
