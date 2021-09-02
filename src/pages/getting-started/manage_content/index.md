@@ -177,4 +177,4 @@ This charset and sort order shall be called _lex64_. The following should be tak
 - In order to preserve the ability to insert at the beginning of the list, the order string cannot end with the “-” character.
 
 ### Connect Workflow diagrams
-![Connect Albums Workflow](../../static/ConnectWorkflowDiagrams.png)
+![Connect Albums Workflow](../../../../static/ConnectWorkflowDiagrams.png)
