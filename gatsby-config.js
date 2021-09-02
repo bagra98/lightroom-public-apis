@@ -18,7 +18,7 @@ module.exports = {
         path: '/'
       },
       {
-        title: 'Getting Started',
+        title: 'Get Started',
         path: '/getting-started/'
       },
       {
