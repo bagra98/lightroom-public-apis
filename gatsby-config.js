@@ -12,36 +12,26 @@
 
 module.exports = {
   siteMetadata: {
-    versions: [
-      {
-        title: 'v2.0',
-        selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/analytics-1.4-apis'
-      }
-    ],
     pages: [
       {
-        title: 'Adobe Lr',
+        title: 'Lightroom API Overview',
         path: '/'
+      },
+      {
+        title: 'Getting Started',
+        path: '/getting-started/'
       },
       {
         title: 'Guides',
         path: '/guides/'
       },
       {
+        title: 'Code Samples',
+        path: '/code-sample/'
+      },
+      {
         title: 'API Reference',
-        menu: [{
-          title: 'API Reference v2.0',
-          description: 'Adobe Lr Reporting API',
-          path: '/api/index.md'
-        }, {
-          title: 'API Reference v1.4',
-          description: 'API Spec for the Adobe Marketing Cloud',
-          path: '/api/1.4.md'
-        }]
+        path: '/api/index.md'
       },
       {
         title: 'Support',
@@ -152,5 +142,5 @@ module.exports = {
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`],
-  pathPrefix: process.env.PATH_PREFIX || '/dev-site-documentation-template/'
+  pathPrefix: process.env.PATH_PREFIX || '/lightroom/lightroom-api-docs/'
 };
