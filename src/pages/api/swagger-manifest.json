@@ -2,17 +2,17 @@
     "name": "Lightroom Services",
     "version": "1.0.0",
     "description": "Adobe Lightroom",
-    "author": "Samyak Bagra",
+    "author": "Smita Das",
     "view_type": "swaggerbook",
     "meta_keywords": "Adobe lightroom Partner",
     "meta_description": "Adobe Lightroom Partner API documentation",
-    "publish_date": "09/03/2021",
+    "publish_date": "08/23/2018",
     "show_edit_github_banner": false,
-    "base_path": "https://raw.githubusercontent.com/bagra98/lightroom-public-apis/main",
+    "base_path": "https://raw.githubusercontent.com/AdobeDocs/lightroom-partner-apis/master",
     "pages": [
       {
         "pages": [],
-        "path": "src/pages/api/docs/LightroomPartnerAPIsSpec.json",
+        "path": "docs/api/LightroomPartnerAPIsSpec.json",
         "title": "Lightroom Services"
       }
     ]
