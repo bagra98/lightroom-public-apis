@@ -1,17 +1,18 @@
 {
-    "swagger": "2.0",
+    "swagger": "3.0.1",
     "info": {
-      "description": "Documentation for the Lightroom APIs, made available through [adobe.io](https://www.adobe.io). API Change Logs are available [here](https://www.adobe.io/apis/creativecloud/lightroom/docs.html#!apichangelog.md).",
+      "description": "Lightroom API Documentation, made available through [adobe.io](https://www.adobe.io). API Change Logs are available [here](https://www.adobe.io/apis/creativecloud/lightroom/docs.html#!apichangelog.md).",
       "version": "1.0.0",
-      "title": "Lightroom API",
+      "title": "Lightroom API Documentation",
       "license": {
         "name": "Apache 2.0",
         "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
       }
     },
-    "host": "lr.adobe.io",
-    "schemes": [
-      "https"
+    "servers": [
+      {
+        "url": "https://image.adobe.io/"
+      }
     ],
     "tags": [
       {
@@ -768,9 +769,9 @@
                     "captureDate": "<image_capture_date>",
                     "importSource": {
                       "fileName": "<file_name>",
-                      "fileSize": <image_file_size>,
-                      "originalWidth": <image_width>,
-                      "originalHeight": <image_height>,
+                      "fileSize": "<image_file_size>",
+                      "originalWidth": "<image_width>",
+                      "originalHeight": "<image_height>",
                       "sha256": "<image_sha256>",
                       "importedOnDevice": "<import_device_name>",
                       "importedBy": "<import_account_id>",
@@ -853,14 +854,14 @@
                   "created": "<created_date>",
                   "updated": "<updated_date>",
                   "subtype": "video",
-                  "unshareable": <unshareable>,
+                  "unshareable": "<unshareable>",
                   "payload": {
                     "captureDate": "<image_capture_date>",
                     "importSource": {
                       "fileName": "<file_name>",
-                      "fileSize": <image_file_size>,
-                      "originalWidth": <image_width>,
-                      "originalHeight": <image_height>,
+                      "fileSize": "<image_file_size>",
+                      "originalWidth": "<image_width>",
+                      "originalHeight": "<image_height>",
                       "sha256": "<image_sha256>",
                       "importedOnDevice": "<import_device_name>",
                       "importedBy": "<import_account_id>",
@@ -879,8 +880,8 @@
                         "<video_aspect_ratio_numerator>",
                         "<video_aspect_ratio_denominator>"
                       ],
-                      "storageWidth": <video_storage_width>,
-                      "storageHeight": <video_storage_height>
+                      "storageWidth": "<video_storage_width>",
+                      "storageHeight": "<video_storage_height>"
                     },
                     "<key>": "<value>",
                     "develop": {
