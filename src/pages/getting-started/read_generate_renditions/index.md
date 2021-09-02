@@ -7,10 +7,10 @@ contributors:
 
 # Read and Generate Renditions
 
-##Renditions
+## Renditions
 Each photo asset has a set of JPEGs intended for application display of the latest visual representation of the asset (either edited or original uploaded state)
 
-##Details of Renditions
+## Details of Renditions
 
 * Creation - Upon uploading a photo, the following renditions will be created (JPEG format)
     * thumbnail2x (320 pixels constraint on either edge) 
@@ -27,7 +27,7 @@ Each photo asset has a set of JPEGs intended for application display of the late
 For best performance, use the smallest size possible for all application scrolling case 
 
 
-##Workflow to generate renditions for print workflow
+## Workflow to generate renditions for print workflow
 
 Generate renditions for an original file asynchronously. Allowed rendition types are fullsize and 2560. Generated rendition will be deleted after 1 day automatically. Both these renditions must always be requested on demand.  First check to see if one is available, and if not create it. These renditions are not available with basic API access. Should your application require this capability, you must contact Adobe and describe your needs. Here are the details of fullsize and 2560
 - Fullsize - size of original with edits, constrained by any applied crops.
