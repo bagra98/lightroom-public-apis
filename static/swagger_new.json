@@ -9,10 +9,9 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "servers": [
-        {
-            "url": "https://image.adobe.io/"
-        }
+    "host": "lr.adobe.io",
+    "schemes": [
+        "https"
     ],
     "tags": [
         {
@@ -104,6 +103,187 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/v2/account": {
+            "get": {
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "Retrieve the user account metadata",
+                "description": "An account is associated with each Adobe customer and contains the personal information and subscription status. This information can be obtained through the authentication APIs and is provided by Lightroom as a convenience.",
+                "operationId": "getAccount",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-API-Key",
+                        "in": "header",
+                        "description": "Client ID (API Key) which is subscribed to the Lightroom APIs through console.adobe.io",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer [token] - User access token of an authenticated Lightroom customer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "base": {
+                                "type": "string",
+                                "description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
+                                },
+                                "id": {
+                                "$ref": "#/definitions/uuid"
+                                },
+                                "created": {
+                                "$ref": "#/definitions/utcDateTime"
+                                },
+                                "updated": {
+                                "$ref": "#/definitions/utcDateTime"
+                                },
+                                "type": {
+                                "type": "string",
+                                "enum": [ "account" ]
+                                },
+                                "email": {
+                                "type": "string"
+                                },
+                                "full_name": {
+                                "type": "string"
+                                },
+                                "first_name": {
+                                "type": "string"
+                                },
+                                "last_name": {
+                                "type": "string"
+                                },
+                                "wcd_guid": {
+                                "type": "string"
+                                },
+                                "country": {
+                                "type": "string"
+                                },
+                                "config": {
+                                "type": "object"
+                                },
+                                "entitlement": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "created",
+                                            "trial",
+                                            "trial_expired",
+                                            "subscriber",
+                                            "subscriber_expired"
+                                        ],
+                                        "description": "The status can take on one of five values from created, trial, trial_expired, subscriber, and subscriber_expired. The created status indicates the user has not yet stepped into any Creative Cloud offering, whether trial or subscription. It is a minimally-entitled Adobe ID."
+                                        },
+                                        "trial": {
+                                        "type": "object"
+                                        },
+                                        "current_subs": {
+                                        "type": "object"
+                                        },
+                                        "storage": {
+                                        "type": "object",
+                                        "properties": {
+                                            "used": {
+                                            "type": "integer",
+                                            "description": "The size in bytes of content this account that count against the storage limit."
+                                            },
+                                            "warn": {
+                                            "type": "integer",
+                                            "description": "Value of used at which the client applications should start warning the user. Absence indicates no warning should be given."
+                                            },
+                                            "limit": {
+                                            "type": "integer",
+                                            "description": "Specifies the storage limit in bytes that should be enforced for this account. It will always be greater than or equal to the display_limit."
+                                            },
+                                            "display_limit": {
+                                            "type": "integer",
+                                            "description": "Specifies the storage limit in bytes that is displayed to the user for this account."
+                                            }
+                                        }
+                                        },
+                                        "deletion_date": {
+                                        "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "example": {
+                                "base": "https://lr.adobe.io/",
+                                "id": "96e656e3812b4c2fb670fa74b6a7ad74",
+                                "type": "account",
+                                "created": "2017-09-12T17:22:41.751746Z",
+                                "updated": "2019-02-02T17:17:39.663862Z",
+                                "email": "customer@domain.com",
+                                "full_name": "Adobe Customer",
+                                "first_name": "Adobe",
+                                "last_name": "Customer",
+                                "wcd_guid": "6CEE5CFE464CC743992017B8",
+                                "country": "US",
+                                "config": {
+                                    "nimbus_show_different_ui": true,
+                                    "search_index": true,
+                                    "purge_assets_after": 5184000
+                                },
+                                "entitlement": {
+                                "status": "subscriber",
+                                "trial": {
+                                    "start": "2017-09-12T17:22:41.751746Z",
+                                    "end": "2018-02-16T10:35:24.593005Z"
+                                },
+                                "current_subs": {
+                                    "product_id": "lightroom",
+                                    "store": "adobe",
+                                    "purchase_date": "2019-02-04T07:25:59.121277Z",
+                                    "sao": {
+                                        "inpkg_CCLE": "0",
+                                        "inpkg_CCSN": "0",
+                                        "inpkg_LRMP": "1",
+                                        "inpkg_PHLT": "0"
+                                    }
+                                },
+                                "storage": {
+                                    "used": 11998409416,
+                                    "warn": 85899345920,
+                                    "limit": 112742891520,
+                                    "display_limit": 107374182400
+                                },
+                                "deletion_date": "2020-05-06T15:17:51.216255Z"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/BadRequestGUID"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/Unauthorized"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/ForbiddenKey"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFound"
+                    },
+                    "503": {
+                        "$ref": "#/components/responses/ServiceUnavailable"
                     }
                 }
             }
