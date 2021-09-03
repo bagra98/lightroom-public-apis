@@ -74,7 +74,20 @@
                         }
                     },
                     "403": {
-                        "$ref": "#/components/responses/ForbiddenKey"
+                        "description": "The request failed because the API Key is not valid.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 403003 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "API Key is invalid" ]
+                                }
+                            }
+                        }
                     },
                     "503": {
                         "$ref": "#/components/responses/ServiceUnavailable"
