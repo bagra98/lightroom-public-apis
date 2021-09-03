@@ -62,7 +62,7 @@
                     }
                 ],
                 "responses": {
-                    "200 (OK)": {
+                    "200": {
                         "description": "OK",
                         "schema": {
                             "type": "object",
@@ -73,10 +73,10 @@
                             }
                         }
                     },
-                    "403 (Invalid Key)": {
+                    "403": {
                         "$ref": "#/components/responses/ForbiddenKey"
                     },
-                    "503 (Unavailable)": {
+                    "503": {
                         "$ref": "#/components/responses/ServiceUnavailable"
                     }
                 }
