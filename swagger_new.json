@@ -1,5 +1,5 @@
 {
-    "swagger": "2.0",
+    "swagger": "3.0",
     "info": {
         "description": "Lightroom API Documentation, made available through [adobe.io](https://www.adobe.io). API Change Logs are available [here](https://bagra98.github.io/lightroom-public-apis/release-notes/).",
         "version": "1.0.0",
@@ -609,25 +609,131 @@
                     }
                     },
                     "400": {
-                    "$ref": "#/components/responses/BadRequestGUID"
+                        "description": "The request failed due to an invalid resource identifier.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "<param_name>": {
+                                            "type": "array",
+                                            "items": {
+                                            "type": "string",
+                                            "enum": [ "Must be a valid GUID"]
+                                            }
+                                        }
+                                    }
+                                },
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 1005 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Input Validation Error" ]
+                                }
+                            }
+                        }
                     },
                     "401": {
-                    "$ref": "#/components/responses/Unauthorized"
+                        "description": "The request failed due to missing or invalid authentication token."
                     },
                     "403": {
-                    "$ref": "#/components/responses/ForbiddenKey"
-                    },
-                    "403(a)": {
-                    "$ref": "#/components/responses/ForbiddenAccount"
-                    },
-                    "403(b)": {
-                    "$ref": "#/components/responses/Forbidden"
+                        "oneOf": [
+                            {
+                                "description": "The request failed because the API Key is not valid.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 403003 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "API Key is invalid" ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "description": "The request failed due to the account state.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 4301 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "Access forbidden due to account state of resource owner" ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "description": "The request failed due to insufficient permissions.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 4300 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "Access is forbidden" ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
                     },
                     "404": {
-                    "$ref": "#/components/responses/NotFound"
+                        "description": "The request failed because the resource being requested does not exist.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "<resource_type>": {
+                                            "type": "array",
+                                            "items": {
+                                            "type": "string",
+                                            "enum": [ "does not exist"]
+                                            }
+                                        }
+                                    }
+                                },
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 1000 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Resource not found" ]
+                                }
+                            }
+                        }
                     },
                     "503": {
-                    "$ref": "#/components/responses/ServiceUnavailable"
+                        "description": "The request failed because the service is temporarily unavailable. Try again later.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 9999 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Service is temporarily unavailable" ]
+                                }
+                            }
+                        }
                     }
                 }
             }
