@@ -39,5 +39,48 @@
             "name": "albums",
             "description": "Information for albums, which contain references to zero or more assets."
         }
-    ]
+    ],
+    "paths": {
+        "/v2/health": {
+            "get": {
+                "tags": [
+                    "health"
+                ],
+                "summary": "Lightroom Services health check",
+                "description": "Will return the Lightroom server version ID (a hexadecimal value not guaranteed to be sequential) if the services are up.",
+                "operationId": "getHealth",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                    "name": "X-API-Key",
+                    "in": "header",
+                    "description": "Client ID (API Key) which is subscribed to the Lightroom APIs through console.adobe.io",
+                    "required": true,
+                    "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200 (OK)": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "version": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403 (Invalid Key)": {
+                        "$ref": "#/components/responses/ForbiddenKey"
+                    },
+                    "503 (Unavailable)": {
+                        "$ref": "#/components/responses/ServiceUnavailable"
+                    }
+                }
+            }
+          }
+    }
 }
