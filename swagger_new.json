@@ -90,10 +90,7 @@
                         }
                     },
                     "503": {
-                        "description": "The request failed because the service is temporarily unavailable. Try again later.",
-                        "schema": {
-                            "$ref": "#/components/responses/ServiceUnavailable"
-                        }
+                        "$ref": "#/components/responses/ServiceUnavailable"
                     }
                 }
             }
@@ -748,15 +745,18 @@
                 }
             },
             "ServiceUnavailable": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "integer",
-                        "enum": [ 9999 ]
-                    },
-                    "description": {
-                        "type": "string",
-                        "enum": [ "Service is temporarily unavailable" ]
+                "description": "The request failed because the service is temporarily unavailable. Try again later.",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "integer",
+                            "enum": [ 9999 ]
+                        },
+                        "description": {
+                            "type": "string",
+                            "enum": [ "Service is temporarily unavailable" ]
+                        }
                     }
                 }
             }
