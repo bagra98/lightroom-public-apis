@@ -243,47 +243,123 @@
                                     "purge_assets_after": 5184000
                                 },
                                 "entitlement": {
-                                "status": "subscriber",
-                                "trial": {
-                                    "start": "2017-09-12T17:22:41.751746Z",
-                                    "end": "2018-02-16T10:35:24.593005Z"
-                                },
-                                "current_subs": {
-                                    "product_id": "lightroom",
-                                    "store": "adobe",
-                                    "purchase_date": "2019-02-04T07:25:59.121277Z",
-                                    "sao": {
-                                        "inpkg_CCLE": "0",
-                                        "inpkg_CCSN": "0",
-                                        "inpkg_LRMP": "1",
-                                        "inpkg_PHLT": "0"
-                                    }
-                                },
-                                "storage": {
-                                    "used": 11998409416,
-                                    "warn": 85899345920,
-                                    "limit": 112742891520,
-                                    "display_limit": 107374182400
-                                },
-                                "deletion_date": "2020-05-06T15:17:51.216255Z"
+                                    "status": "subscriber",
+                                    "trial": {
+                                        "start": "2017-09-12T17:22:41.751746Z",
+                                        "end": "2018-02-16T10:35:24.593005Z"
+                                    },
+                                    "current_subs": {
+                                        "product_id": "lightroom",
+                                        "store": "adobe",
+                                        "purchase_date": "2019-02-04T07:25:59.121277Z",
+                                        "sao": {
+                                            "inpkg_CCLE": "0",
+                                            "inpkg_CCSN": "0",
+                                            "inpkg_LRMP": "1",
+                                            "inpkg_PHLT": "0"
+                                        }
+                                    },
+                                    "storage": {
+                                        "used": 11998409416,
+                                        "warn": 85899345920,
+                                        "limit": 112742891520,
+                                        "display_limit": 107374182400
+                                    },
+                                    "deletion_date": "2020-05-06T15:17:51.216255Z"
                                 }
                             }
                         }
                     },
                     "400": {
-                        "$ref": "#/components/responses/BadRequestGUID"
+                        "description": "The request failed due to an invalid resource identifier.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "<param_name>": {
+                                            "type": "array",
+                                            "items": {
+                                            "type": "string",
+                                            "enum": [ "Must be a valid GUID"]
+                                            }
+                                        }
+                                    }
+                                },
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 1005 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Input Validation Error" ]
+                                }
+                            }
+                        }
                     },
                     "401": {
-                        "$ref": "#/components/responses/Unauthorized"
+                        "description": "The request failed due to missing or invalid authentication token."
                     },
                     "403": {
-                        "$ref": "#/components/responses/ForbiddenKey"
+                        "description": "The request failed because the API Key is not valid.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 403003 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "API Key is invalid" ]
+                                }
+                            }
+                        }
                     },
                     "404": {
-                        "$ref": "#/components/responses/NotFound"
+                        "description": "The request failed because the resource being requested does not exist.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "<resource_type>": {
+                                            "type": "array",
+                                            "items": {
+                                            "type": "string",
+                                            "enum": [ "does not exist"]
+                                            }
+                                        }
+                                    }
+                                },
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 1000 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Resource not found" ]
+                                }
+                            }
+                        }
                     },
                     "503": {
-                        "$ref": "#/components/responses/ServiceUnavailable"
+                        "description": "The request failed because the service is temporarily unavailable. Try again later.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 9999 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Service is temporarily unavailable" ]
+                                }
+                            }
+                        }
                     }
                 }
             }
