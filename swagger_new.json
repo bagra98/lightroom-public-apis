@@ -1,5 +1,5 @@
 {
-    "swagger": "3.0",
+    "swagger": "3.0.1",
     "info": {
         "description": "Lightroom API Documentation, made available through [adobe.io](https://www.adobe.io). API Change Logs are available [here](https://bagra98.github.io/lightroom-public-apis/release-notes/).",
         "version": "1.0.0",
