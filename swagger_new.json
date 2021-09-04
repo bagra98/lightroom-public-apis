@@ -655,6 +655,38 @@
                             }
                         }
                     },
+                    "403(2)": {
+                        "description": "The request failed due to the account state.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 4301 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Access forbidden due to account state of resource owner" ]
+                                }
+                            }
+                        }
+                    },
+                    "403(3)": {
+                        "description": "The request failed due to insufficient permissions.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 4300 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Access is forbidden" ]
+                                }
+                            }
+                        }
+                    },
                     "404": {
                         "description": "The request failed because the resource being requested does not exist.",
                         "schema": {
@@ -1291,8 +1323,8 @@
                     }
                     }
                 },
-                "400 (Bad UUID)": {
-                    "$ref": "#/components/responses/BadRequestGUID"
+                "400": {
+                    "$ref": "#/components/responseTemplates/BadRequestGUID"
                 },
                 "400 (Bad asset_ids)": {
                     "$ref": "#/components/responses/BadRequestAssetIds"
@@ -3342,7 +3374,7 @@
         }
     },
     "components": {
-        "responses": {
+        "responseTemplates": {
             "BadRequestGUID": {
                 "description": "The request failed due to an invalid resource identifier.",
                 "schema": {
