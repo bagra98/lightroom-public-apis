@@ -640,52 +640,56 @@
                         "description": "The request failed due to missing or invalid authentication token."
                     },
                     "403": {
-                        "description": "The request failed because the API Key is not valid.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 403003 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "API Key is invalid" ]
+                        "oneOf": [
+                            {
+                                "description": "The request failed because the API Key is not valid.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 403003 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "API Key is invalid" ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "description": "The request failed due to the account state.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 4301 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "Access forbidden due to account state of resource owner" ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "description": "The request failed due to insufficient permissions.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 4300 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "Access is forbidden" ]
+                                        }
+                                    }
                                 }
                             }
-                        }
-                    },
-                    "403(2)": {
-                        "description": "The request failed due to the account state.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 4301 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Access forbidden due to account state of resource owner" ]
-                                }
-                            }
-                        }
-                    },
-                    "403(3)": {
-                        "description": "The request failed due to insufficient permissions.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 4300 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Access is forbidden" ]
-                                }
-                            }
-                        }
+                        ]
                     },
                     "404": {
                         "description": "The request failed because the resource being requested does not exist.",
@@ -862,236 +866,35 @@
                             }
                         }
                     },
-                    "400(1)": {
-                        "description": "The request failed due to an invalid JSON.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "body": {
-                                            "type": "array",
-                                            "items": {
-                                            "type": "string",
-                                            "enum": [ "Must be valid JSON"]
-                                            }
-                                        }
-                                    }
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 1005 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Input Validation Error" ]
-                                }
-                            }
-                        }
+                    "4001": {
+                        "$ref": "#/components/responses/BadRequestJSON"
                     },
-                    "400(2)": {
-                        "description": "The request failed due to an invalid subtype.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "<subtype>": {
-                                            "type": "array",
-                                            "items": {
-                                            "type": "string",
-                                            "enum": [ "is invalid"]
-                                            }
-                                        }
-                                    }
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 1005 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Input Validation Error" ]
-                                }
-                            }
-                        }
+                    "4002": {
+                        "$ref": "#/components/responses/BadRequestSubtype"
                     },
-                    "400(3)": {
-                        "description": "The request failed due to an invalid payload. The errors hash returned will specify which payload keys had issues and whether the value was invalid, whether the key is required and missing, or whether the key is not allowed.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "payload.<key>.<subkey>": {
-                                            "type": "array",
-                                            "items": {
-                                            "type": "string",
-                                            "enum": [ "invalid", "disallowed", "required" ]
-                                            }
-                                        }
-                                    }
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 1030 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Payload Validation Error" ]
-                                }
-                            }
-                        }
+                    "4003": {
+                        "$ref": "#/components/responses/BadRequestPayload"
                     },
                     "401": {
-                        "description": "The request failed due to missing or invalid authentication token."
+                        "$ref": "#/components/responses/Unauthorized"
                     },
                     "403": {
-                        "description": "The request failed because the API Key is not valid.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 403003 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "API Key is invalid" ]
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/ForbiddenKey"
                     },
-                    "403(1)": {
-                        "description": "The request failed due to the account state.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "<resource_type>": {
-                                            "type": "array",
-                                            "items": {
-                                            "type": "string",
-                                            "enum": [ "already exists"]
-                                            }
-                                        }
-                                    }
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 1002 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Resource already exists" ]
-                                }
-                            }
-                        }
+                    "4031": {
+                        "$ref": "#/components/responses/ForbiddenExists"
                     },
-                    "403(2)": {
-                        "description": "The request failed due to insufficient storage under the entitlement.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "<asset_id>": {
-                                            "type": "array",
-                                            "items": {
-                                            "type": "string",
-                                            "enum": [ "quota exceeded"]
-                                            }
-                                        }
-                                    }
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 1043 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Too many assets" ]
-                                }
-                            }
-                        }
+                    "4032": {
+                        "$ref": "#/components/responses/ForbiddenQuota"
                     },
                     "404": {
-                        "description": "The request failed because the resource being requested does not exist.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "<resource_type>": {
-                                            "type": "array",
-                                            "items": {
-                                            "type": "string",
-                                            "enum": [ "does not exist"]
-                                            }
-                                        }
-                                    }
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 1000 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Resource not found" ]
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/NotFound"
                     },
                     "415": {
-                        "description": "The request failed because the Content-Type did not match the request.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "errors": {
-                                    "type": "object",
-                                    "properties": {
-                                        "content_type": {
-                                            "type": "array",
-                                            "items": {
-                                            "type": "string",
-                                            "enum": [ "should be json", "should match the subtype of the asset" ]
-                                            }
-                                        }
-                                    }
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 1003 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Invalid content type" ]
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/UnsupportedMediaType"
                     },
                     "503": {
-                        "description": "The request failed because the service is temporarily unavailable. Try again later.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [ 9999 ]
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "enum": [ "Service is temporarily unavailable" ]
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/ServiceUnavailable"
                     }
                 }
             },
@@ -1323,8 +1126,8 @@
                     }
                     }
                 },
-                "400": {
-                    "$ref": "#/components/responseTemplates/BadRequestGUID"
+                "400 (Bad UUID)": {
+                    "$ref": "#/components/responses/BadRequestGUID"
                 },
                 "400 (Bad asset_ids)": {
                     "$ref": "#/components/responses/BadRequestAssetIds"
@@ -3374,7 +3177,7 @@
         }
     },
     "components": {
-        "responseTemplates": {
+        "responses": {
             "BadRequestGUID": {
                 "description": "The request failed due to an invalid resource identifier.",
                 "schema": {
