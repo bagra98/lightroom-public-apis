@@ -62,7 +62,7 @@
               }
             ],
             "responses": {
-              "200 (OK)": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -73,10 +73,10 @@
                   }
                 }
               },
-              "403 (Invalid Key)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -110,7 +110,7 @@
               }
             ],
             "responses": {
-              "200 (OK)": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -245,19 +245,19 @@
                   }
                 }
               },
-              "400 (Bad UUID)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "401 (Unauthorized)": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 (Invalid Key)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "404 (Not Found)": {
+              "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -291,7 +291,7 @@
               }
             ],
             "responses": {
-              "200 (OK)": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -507,25 +507,25 @@
                   }
                 }
               },
-              "400 (Bad UUID)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "401 (Unauthorized)": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 (Invalid Key)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403 (Forbidden Account)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenAccount"
               },
-              "403 (Forbidden)": {
+              "403": {
                 "$ref": "#/components/responses/Forbidden"
               },
-              "404 (Not Found)": {
+              "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -628,40 +628,40 @@
               }
             ],
             "responses": {
-              "201 (Created)": {
+              "201": {
                 "description": "Created"
               },
-              "400 (Bad UUID)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400 (Bad JSON)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestJSON"
               },
-              "400 (Bad Subtype)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestSubtype"
               },
-              "400 (Bad Payload)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestPayload"
               },
-              "401 (Unauthorized)": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 (Invalid Key)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403 (Exists)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenExists"
               },
-              "403 (Storage)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenQuota"
               },
-              "404 (Not Found)": {
+              "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "415 (Unsupported)": {
+              "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -707,7 +707,7 @@
               }
             ],
             "responses": {
-              "200 OK": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -785,7 +785,7 @@
                   }
                 }
               },
-              "200 OK (Response for video asset)": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -894,40 +894,40 @@
                   }
                 }
               },
-              "400 (Bad UUID)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400 (Bad asset_ids)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestAssetIds"
               },
-              "400 (Bad group)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGroup"
               },
-              "400 (Bad name)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestName"
               },
-              "400 (Bad favorite param)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestFavorite"
               },
-              "400 (Bad subtype with name/group)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName"
               },
-              "400 (Bad subtype with favorite)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite"
               },
-              "400 (Bad date/time)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestInvalidDateTime"
               },
-              "401 (Unauthorized)": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 (Invalid Key)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403 (Forbidden)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenClient"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -1040,7 +1040,7 @@
               }
             ],
             "responses": {
-              "200 OK": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -1202,7 +1202,7 @@
                   }
                 }
               },
-              "200 OK (Asset_ids query param present)": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -1385,40 +1385,40 @@
                   }
                 }
               },
-              "400 (Bad UUID)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400 (Bad asset_ids)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestAssetIds"
               },
-              "400 (Bad group)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGroup"
               },
-              "400 (Bad name)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestName"
               },
-              "400 (Bad favorite param)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestFavorite"
               },
-              "400 (Bad subtype with name/group)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName"
               },
-              "400 (Bad subtype with favorite)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite"
               },
-              "400 (Bad date/time)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestInvalidDateTime"
               },
-              "401 (Unauthorized)": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 (Invalid Key)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403 (Forbidden)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenClient"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -1488,22 +1488,22 @@
               "201": {
                 "description": "Created"
               },
-              "400 Bad UUID": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 Invalid Key": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
               "413": {
                 "$ref": "#/components/responses/TooLarge"
               },
-              "415 Unsupported": {
+              "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -1587,13 +1587,13 @@
                   }
                 }
               },
-              "400 Bad UUID": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400 Bad Asset Subtype": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestSubtype"
               },
-              "400 Bad Rendition Type": {
+              "400": {
                 "description": "Request failed due to unsupported rendition type",
                 "schema": {
                   "type": "object",
@@ -1621,19 +1621,19 @@
                   }
                 }
               },
-              "400 Missing X-Generate-Renditions": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestMissingParameter"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 Invalid Key": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "404 (Not Found)": {
+              "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -1688,13 +1688,13 @@
               }
             ],
             "responses": {
-              "200 (OK)": {
+              "200": {
                 "description": "Asset rendition file"
               },
-              "400 Bad UUID": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400 Input Validation Error": {
+              "400": {
                 "description": "Request failed due to unsupported rendition type",
                 "schema": {
                   "type": "object",
@@ -1722,13 +1722,13 @@
                   }
                 }
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "404 (Not Found)": {
+              "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -1808,40 +1808,40 @@
               }
             ],
             "responses": {
-              "201 (Created)": {
+              "201": {
                 "description": "Created"
               },
-              "400 (Bad UUID)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400 (Bad JSON)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestJSON"
               },
-              "400 (Bad Subtype)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestSubtype"
               },
-              "400 (Bad Payload)": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestPayload"
               },
-              "401 (Unauthorized)": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 (Invalid Key)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403 (Exists)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenExists"
               },
-              "403 (Storage)": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenQuota"
               },
-              "404 (Not Found)": {
+              "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "415 (Unsupported)": {
+              "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -1888,25 +1888,25 @@
               }
             ],
             "responses": {
-              "200 (OK)": {
+              "200": {
                 "description": "External XMP Develop Setting file. Content type of the response is application/rdf+xml."
               },
-              "400 Bad UUID": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 Access Forbidden":{
+              "403":{
                 "$ref":"#/components/responses/Forbidden"
               },
-              "403 Invalid Key":{
+              "403":{
                 "$ref":"#/components/responses/ForbiddenKey"
               },
-              "404 (Not Found)": {
+              "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -1979,25 +1979,25 @@
               "201": {
                 "description": "Created"
               },
-              "400 Bad JSON": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestJSON"
               },
-              "400 Bad Payload": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestPayload"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 Invalid Key": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403 Exists": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenExists"
               },
-              "415 Unsupported": {
+              "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -2043,7 +2043,7 @@
               }
             ],
             "responses":{
-              "200 OK":{
+              "200":{
                 "description":"OK",
                 "schema":{
                   "type":"object",
@@ -2122,22 +2122,22 @@
                   }
                 }
               },
-              "401 Unauthorized":{
+              "401":{
                 "$ref":"#/components/responses/Unauthorized"
               },
-              "403 Invalid Key":{
+              "403":{
                 "$ref":"#/components/responses/ForbiddenKey"
               },
               "403":{
                 "$ref":"#/components/responses/Forbidden"
               },
-              "403 Forbidden Operation":{
+              "403":{
                 "$ref":"#/components/responses/ForbiddenOperation"
               },
               "404":{
                 "$ref":"#/components/responses/NotFound"
               },
-              "503 (Unavailable)":{
+              "503":{
                 "$ref":"#/components/responses/ServiceUnavailable"
               }
             }
@@ -2200,28 +2200,28 @@
               "204": {
                 "description": "No Content"
               },
-              "400 Bad JSON": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestJSON"
               },
-              "400 Bad Payload": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestPayload"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 Invalid Key": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
               "403": {
                 "$ref": "#/components/responses/Forbidden"
               },
-              "403 Forbidden Operation":{
+              "403":{
                 "$ref":"#/components/responses/ForbiddenOperation"
               },
-              "415 Unsupported": {
+              "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -2276,22 +2276,22 @@
               "204": {
                 "description": "No Content"
               },
-              "400 Bad JSON": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestJSON"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403 Invalid Key": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
               "403": {
                 "$ref": "#/components/responses/Forbidden"
               },
-              "403 Forbidden Operation":{
+              "403":{
                 "$ref":"#/components/responses/ForbiddenOperation"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -2350,7 +2350,7 @@
               }
             ],
             "responses": {
-              "200 OK": {
+              "200": {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -2397,25 +2397,25 @@
                   }
                 }
               },
-              "400 Bad UUID": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
               "403": {
                 "$ref": "#/components/responses/Forbidden"
               },
-              "403 Invalid Key": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "415 Unsupported": {
+              "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -2571,22 +2571,22 @@
                   }
                 }
               },
-              "400 Bad UUID": {
+              "400": {
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "401 Unauthorized": {
+              "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
               "403": {
                 "$ref": "#/components/responses/Forbidden"
               },
-              "403 Invalid Key": {
+              "403": {
                 "$ref": "#/components/responses/ForbiddenKey"
               },
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
-              "503 (Unavailable)": {
+              "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
             }
@@ -2704,7 +2704,7 @@
               }
             ],
             "responses":{
-              "200 (OK)":{
+              "200":{
                 "description":"Ok",
                 "schema":{
                   "type":"object",
@@ -2919,25 +2919,25 @@
                   }
                 }
               },
-              "400 Bad UUID":{
+              "400":{
                 "$ref":"#/components/responses/BadRequestGUID"
               },
-              "401 Unauthorized":{
+              "401":{
                 "$ref":"#/components/responses/Unauthorized"
               },
               "403":{
                 "$ref":"#/components/responses/Forbidden"
               },
-              "403 Forbidden Operation":{
+              "403":{
                 "$ref":"#/components/responses/ForbiddenOperation"
               },
-              "403 Invalid Key":{
+              "403":{
                 "$ref":"#/components/responses/ForbiddenKey"
               },
               "404":{
                 "$ref":"#/components/responses/NotFound"
               },
-              "503 (Unavailable)":{
+              "503":{
                 "$ref":"#/components/responses/ServiceUnavailable"
               }
             }
