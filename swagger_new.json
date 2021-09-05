@@ -363,6 +363,380 @@
                     }
                 }
             }
+        },
+        "/v2/catalog": {
+            "get": {
+                "tags": [
+                    "catalogs"
+                ],
+                "summary": "Retrieve the user catalog metadata",
+                "description": "A catalog is the topmost container of resources for a user. Each catalog contains zero or more assets, albums, or other resources.",
+                "operationId": "getCatalog",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                    "name": "X-API-Key",
+                    "in": "header",
+                    "description": "Client ID (API Key) which is subscribed to the Lightroom APIs through console.adobe.io",
+                    "required": true,
+                    "type": "string"
+                    },
+                    {
+                    "name": "Authorization",
+                    "in": "header",
+                    "description": "Bearer [token] - User access token of an authenticated Lightroom customer",
+                    "required": true,
+                    "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                    "description": "OK",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "base": {
+                                "type": "string",
+                                "description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
+                            },
+                            "id": {
+                                "$ref": "#/definitions/uuid"
+                            },
+                            "created": {
+                                "$ref": "#/definitions/utcDateTime"
+                            },
+                            "updated": {
+                                "$ref": "#/definitions/utcDateTime"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [ "catalog" ]
+                            },
+                            "subtype": {
+                                "type": "string",
+                                "enum": [ "lightroom" ]
+                            },
+                            "payload": {
+                                "$schema": "http://json-schema.org/draft-04/schema#",
+                                "title": "Catalog Payload Schema",
+                                "type": "object",
+                                "definitions": {},
+                                "properties": {
+                                    "userCreated": {
+                                        "$ref": "#/definitions/utcDateTime"
+                                    },
+                                    "userUpdated": {
+                                        "$ref": "#/definitions/utcDateTime"
+                                    },
+                                    "name": {
+                                        "$ref": "#/definitions/max1024CharacterString"
+                                    },
+                                    "assetSortOrder": {
+                                        "type": "string",
+                                        "enum": [
+                                        "captureDateAsc",
+                                        "captureDateDesc",
+                                        "importTimestampAsc",
+                                        "importTimestampDesc",
+                                        "fileNameAsc",
+                                        "fileNameDesc",
+                                        "ratingAsc",
+                                        "ratingDesc",
+                                        "userUpdatedAsc",
+                                        "userUpdatedDesc"
+                                        ]
+                                    },
+                                    "presets": {
+                                        "type": "object",
+                                        "properties": {
+                                        "favorites": {
+                                            "type": "object",
+                                            "patternProperties": {
+                                            "^.{1,128}$": {
+                                                "type": "boolean"
+                                            }
+                                            },
+                                            "additionalProperties": false,
+                                            "minProperties": 1
+                                        }
+                                        },
+                                        "additionalProperties": false,
+                                        "minProperties": 1
+                                    },
+                                    "profiles": {
+                                        "type": "object",
+                                        "properties": {
+                                        "favorites": {
+                                            "type": "object",
+                                            "patternProperties": {
+                                            "^.{1,128}$": {
+                                                "type": "boolean"
+                                            }
+                                            },
+                                            "additionalProperties": false,
+                                            "minProperties": 1
+                                        }
+                                        },
+                                        "additionalProperties": false,
+                                        "minProperties": 1
+                                    },
+                                    "settings": {
+                                        "type": "object",
+                                        "properties": {
+                                            "universal": {
+                                                "type": "object",
+                                                "properties": {
+                                                "connections": {
+                                                    "type": "object",
+                                                    "patternProperties": {
+                                                    "^.{1,128}$": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                        "created": {
+                                                            "$ref": "#/definitions/utcDateTime"
+                                                        }
+                                                        },
+                                                        "additionalProperties": false,
+                                                        "required": [
+                                                        "created"
+                                                        ]
+                                                    }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "minProperties": 1
+                                                }
+                                                },
+                                                "additionalProperties": false,
+                                                "minProperties": 1
+                                            },
+                                            "desktop": {
+                                                "type": "object",
+                                                "additionalProperties": true,
+                                                "minProperties": 1
+                                            },
+                                            "web": {
+                                                "type": "object",
+                                                "additionalProperties": true,
+                                                "minProperties": 1
+                                            },
+                                            "mobile": {
+                                                "type": "object",
+                                                "additionalProperties": true,
+                                                "minProperties": 1
+                                            },
+                                            "photosdk": {
+                                                "type": "object",
+                                                "additionalProperties": true,
+                                                "minProperties": 1
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "minProperties": 1
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "required": [
+                                "name"
+                                ]
+                            },
+                            "links": {
+                                "type": "object"
+                            }
+                        },
+                        "example": {
+                            "created": "2019-07-02T15:16:13.556610Z",
+                            "updated": "2019-07-02T15:26:42.838366Z",
+                            "base": "https://lr.adobe.io/v2/",
+                            "id": "bf7337d9355c41b7875c9392f918362a",
+                            "type": "catalog",
+                            "subtype": "lightroom",
+                            "payload": {
+                                "userCreated": "2019-07-02T15:38:14Z",
+                                "userUpdated": "2019-08-16T16:05:13Z",
+                                "name": "Lightroom Classic Catalog Name",
+                                "presets": {
+                                "favorites": {
+                                    "09E4A533BEFC4AC582FCF1EF953EB150": true,
+                                    "30E266DB24AE09B97DC3DD687AC298B1": false,
+                                    "5C9AF6F007B96EF1E0DED43E77BE87C3": true
+                                }
+                                },
+                                "profiles": {
+                                "favorites": {
+                                    "53A4A533BAFB4AB582FBF1AF353AB155": true,
+                                    "35A266DB24AA53B37DB3DD687AB238B1": true,
+                                    "5B3AF6F557B36AF1A5DAD43A77BA87B3": false
+                                }
+                                },
+                                "settings": {
+                                "universal": {
+                                    "connections": {
+                                    "connection_api_key": {
+                                        "created": "2019-07-02T15:26:42.838366Z"
+                                    }
+                                    }
+                                },
+                                "desktop": {
+                                    "desktop_key": "desktop_setting"
+                                },
+                                "web": {
+                                    "web_key": "web_setting"
+                                },
+                                "mobile": {
+                                    "mobile_key": "mobile_setting"
+                                },
+                                "photosdk": {
+                                    "sdk_key": "sdk_setting"
+                                }
+                                }
+                            },
+                            "links": {
+                                "self": {
+                                "href": "catalogs/bf7337d9355c41b7875c9392f918362a"
+                                },
+                                "/rels/subtyped_albums":{
+                                "href":"catalogs/bf7337d9355c41b7875c9392f918362a/albums?subtype={subtype}",
+                                "templated":true
+                                },
+                                "/rels/subtyped_assets":{
+                                "href":"catalogs/bf7337d9355c41b7875c9392f918362a/assets?subtype={subtype}",
+                                "templated":true
+                                }
+                            }
+                        }
+                    }
+                    },
+                    "400": {
+                        "description": "The request failed due to an invalid resource identifier.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "<param_name>": {
+                                            "type": "array",
+                                            "items": {
+                                            "type": "string",
+                                            "enum": [ "Must be a valid GUID"]
+                                            }
+                                        }
+                                    }
+                                },
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 1005 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Input Validation Error" ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "The request failed due to missing or invalid authentication token."
+                    },
+                    "403": {
+                        "oneOf": [
+                            {
+                                "description": "The request failed because the API Key is not valid.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 403003 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "API Key is invalid" ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "description": "The request failed due to the account state.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 4301 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "Access forbidden due to account state of resource owner" ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "description": "The request failed due to insufficient permissions.",
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "enum": [ 4300 ]
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "enum": [ "Access is forbidden" ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "404": {
+                        "description": "The request failed because the resource being requested does not exist.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "<resource_type>": {
+                                            "type": "array",
+                                            "items": {
+                                            "type": "string",
+                                            "enum": [ "does not exist"]
+                                            }
+                                        }
+                                    }
+                                },
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 1000 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Resource not found" ]
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "The request failed because the service is temporarily unavailable. Try again later.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer",
+                                    "enum": [ 9999 ]
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "enum": [ "Service is temporarily unavailable" ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
