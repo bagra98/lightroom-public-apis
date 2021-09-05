@@ -513,15 +513,15 @@
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": {
+              "403": { "anyOf": [{
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403": {
+              {
                 "$ref": "#/components/responses/ForbiddenAccount"
               },
-              "403": {
+              {
                 "$ref": "#/components/responses/Forbidden"
-              },
+              }]},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
@@ -631,30 +631,30 @@
               "201": {
                 "description": "Created"
               },
-              "400": {
+              "400": { "anyOf": [{
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestJSON"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestSubtype"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestPayload"
-              },
+              }]},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": {
+              "403": { "anyOf": [{
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403": {
+              {
                 "$ref": "#/components/responses/ForbiddenExists"
               },
-              "403": {
+              {
                 "$ref": "#/components/responses/ForbiddenQuota"
-              },
+              }]},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
@@ -707,7 +707,7 @@
               }
             ],
             "responses": {
-              "200": {
+              "200": { "anyOf": [{
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -785,7 +785,7 @@
                   }
                 }
               },
-              "200": {
+              {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -893,40 +893,40 @@
                     }
                   }
                 }
-              },
-              "400": {
+              }]},
+              "400": { "anyOf": [{
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestAssetIds"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestGroup"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestName"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestFavorite"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestInvalidDateTime"
-              },
+              }]},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": {
+              "403": { "anyOf": [{
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403": {
+              {
                 "$ref": "#/components/responses/ForbiddenClient"
-              },
+              }]},
               "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
@@ -1040,7 +1040,7 @@
               }
             ],
             "responses": {
-              "200": {
+              "200": { "anyOf": [{
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -1202,7 +1202,7 @@
                   }
                 }
               },
-              "200": {
+              {
                 "description": "OK",
                 "schema": {
                   "type": "object",
@@ -1384,40 +1384,40 @@
                     }
                   }
                 }
-              },
-              "400": {
+              }]},
+              "400": { "anyOf": [{
                 "$ref": "#/components/responses/BadRequestGUID"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestAssetIds"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestGroup"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestName"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestFavorite"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite"
               },
-              "400": {
+              {
                 "$ref": "#/components/responses/BadRequestInvalidDateTime"
-              },
+              }]},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": {
+              "403": { "anyOf": [{
                 "$ref": "#/components/responses/ForbiddenKey"
               },
-              "403": {
+              {
                 "$ref": "#/components/responses/ForbiddenClient"
-              },
+              }]},
               "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
