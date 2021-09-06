@@ -532,13 +532,13 @@
                         "schema": {
                   
             "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
+                "$ref": "#/components/responses/ForbiddenKey/schema"
               },
               {
-                "$ref": "#/components/responses/ForbiddenAccount/content/application/json/schema"
+                "$ref": "#/components/responses/ForbiddenAccount/schema"
               },
               {
-                "$ref": "#/components/responses/Forbidden/content/application/json/schema"
+                "$ref": "#/components/responses/Forbidden/schema"
               }]}}}},
               "404": {
                 "$ref": "#/components/responses/NotFound"
