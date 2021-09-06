@@ -532,7 +532,7 @@
                         "schema": {
                   
             "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey/content/application/json/schema"
+                "$ref": "#/components/responses/ForbiddenKey"
               },
               {
                 "$ref": "#/components/responses/ForbiddenAccount/content/application/json/schema"
@@ -3399,9 +3399,7 @@
                 "description": "The request failed due to missing or invalid authentication token."
             },
             "ForbiddenKey": {
-                "description": "The request failed because the API Key is not valid.",
-                "content": {
-                    "application/json": {
+                
                         "schema": {
                             "type": "object",
                             "properties": {
@@ -3414,14 +3412,11 @@
                                     "enum": [ "API Key is invalid" ]
                                 }
                             }
-                        }
-                    }
+                        
                 }
             },
             "ForbiddenAccount": {
-                "description": "The request failed due to the account state.",
-                "content": {
-                    "application/json": {
+                
                         "schema": {
                             "type": "object",
                             "properties": {
@@ -3434,8 +3429,7 @@
                                     "enum": [ "Access forbidden due to account state of resource owner" ]
                                 }
                             }
-                        }
-                    }
+                        
                 }
             },
             "ForbiddenExists": {
@@ -3503,9 +3497,7 @@
                 }
             },
             "Forbidden": {
-                "description": "The request failed due to insufficient permissions.",
-                "content": {
-                    "application/json": {
+                
                         "schema": {
                             "type": "object",
                             "properties": {
@@ -3518,8 +3510,7 @@
                                     "enum": [ "Access is forbidden" ]
                                 }
                             }
-                        }
-                    }
+                       
                 }
             },
             "ForbiddenClient": {
