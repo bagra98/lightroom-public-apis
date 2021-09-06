@@ -525,15 +525,21 @@
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
+              "403": { 
+                "description": "The request failed due to the account state.",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                  
+            "anyOf": [{
+                "$ref": "#/components/responses/ForbiddenKey/content/application/json/schema"
               },
               {
-                "$ref": "#/components/responses/ForbiddenAccount"
+                "$ref": "#/components/responses/ForbiddenAccount/content/application/json/schema"
               },
               {
-                "$ref": "#/components/responses/Forbidden"
-              }]},
+                "$ref": "#/components/responses/Forbidden/content/application/json/schema"
+              }]}}}},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
