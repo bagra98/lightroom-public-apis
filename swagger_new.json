@@ -525,15 +525,19 @@
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
+              "403": { 
+                "description": "The request failed due to insufficient permissions.",
+                "content": { "anyOf": [{
+                        "$ref": "#/components/responses/ForbiddenKey/content"
+                      },
+                      {
+                        "$ref": "#/components/responses/ForbiddenAccount/content"
+                      },
+                      {
+                        "$ref": "#/components/responses/Forbidden/content"
+                      }
+                ]}
               },
-              {
-                "$ref": "#/components/responses/ForbiddenAccount"
-              },
-              {
-                "$ref": "#/components/responses/Forbidden"
-              }]},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
