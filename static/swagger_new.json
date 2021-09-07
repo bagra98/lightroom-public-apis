@@ -527,16 +527,16 @@
               },
               "403": { 
                 "description": "The request failed due to insufficient permissions.",
-                "content": { "anyOf": [{
-                        "$ref": "#/components/responses/ForbiddenKey/content"
+                "content": { "application/json": { "schema": { "anyOf": [{
+                        "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
                       },
                       {
-                        "$ref": "#/components/responses/ForbiddenAccount/content"
+                        "$ref": "#/components/responses/ForbiddenAccount/content/application~1json/schema"
                       },
                       {
-                        "$ref": "#/components/responses/Forbidden/content"
+                        "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
                       }
-                ]}
+                ]}}}
               },
               "404": {
                 "$ref": "#/components/responses/NotFound"
@@ -647,30 +647,36 @@
               "201": {
                 "description": "Created"
               },
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestGUID"
+              "400": { 
+                "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestSubtype/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
+                }]}}}
               },
-              {
-                "$ref": "#/components/responses/BadRequestJSON"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestSubtype"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestPayload"
-              }]},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
+              "403": { 
+                "description": "The request failed due to insufficient permissions",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenExists/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenQuota/content/application~1json/schema"
+                }]}}}
               },
-              {
-                "$ref": "#/components/responses/ForbiddenExists"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenQuota"
-              }]},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
@@ -723,11 +729,10 @@
               }
             ],
             "responses": {
-              "200": { "anyOf": [{
+              "200": {
                 "description": "OK",
                 "content": {
-                    "application/json": {
-                        "schema": {
+                    "application/json": { "schema": { "anyOf": [{
                             "type": "object",
                             "properties": {
                               "base" : {
@@ -801,15 +806,8 @@
                                 }
                               }
                             }
-                        }
-                    }
-                }
-              },
-              {
-                "description": "OK",
-                "content": {
-                    "application/json": {
-                        "schema": {
+                        },
+                        {
                             "type": "object",
                             "properties": {
                               "base" : {
@@ -915,42 +913,43 @@
                               }
                             }
                         }
-                    }
-                }
-              }]},
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestGUID"
+                ]}}}
               },
-              {
-                "$ref": "#/components/responses/BadRequestAssetIds"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestGroup"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestName"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestFavorite"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestInvalidDateTime"
-              }]},
+              "400": { "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestAssetIds/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestGroup/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestName/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestFavorite/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite/content/application~1json/schema"
+                },
+                {
+                "$ref": "#/components/responses/BadRequestInvalidDateTime/content/application~1json/schema"
+              }]}}}},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
+              "403": { "description": "The request failed due to insufficient permissions.",
+              "content": { "application/json": { "schema": { "anyOf": [{
+                "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
               },
               {
-                "$ref": "#/components/responses/ForbiddenClient"
-              }]},
+                "$ref": "#/components/responses/ForbiddenClient/content/application~1json/schema"
+              }]}}}},
               "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
@@ -1064,11 +1063,9 @@
               }
             ],
             "responses": {
-              "200": { "anyOf": [{
+              "200": {
                 "description": "OK",
-                "content": {
-                    "application/json": {
-                        "schema": {
+                "content": { "application/json": { "schema": { "anyOf": [{
                             "type": "object",
                             "properties": {
                               "base" : {
@@ -1226,15 +1223,8 @@
                                 }
                               }
                             }
-                        }
-                    }
-                }
-              },
-              {
-                "description": "OK",
-                "content": {
-                    "application/json": {
-                        "schema": {
+                        },
+                        {
                             "type": "object",
                             "properties": {
                               "base" : {
@@ -1414,42 +1404,44 @@
                               }
                             }
                         }
-                    }
+                    ]}}
                 }
-              }]},
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestGUID"
               },
-              {
-                "$ref": "#/components/responses/BadRequestAssetIds"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestGroup"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestName"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestFavorite"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestInvalidDateTime"
-              }]},
+              "400": { "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestAssetIds/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestGroup/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestName/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestFavorite/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestInvalidDateTime/content/application~1json/schema"
+              }]}}}},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenClient"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenClient/content/application~1json/schema"
+              }]}}}},
               "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
@@ -1623,47 +1615,41 @@
                     }
                 }
               },
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestGUID"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestSubtype"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestMissingParameter"
-              },
-              {
-                "description": "Request failed due to unsupported rendition type",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                              "errors": {
-                                "type": "object",
-                                "properties": {
-                                  "rendition_type": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string",
-                                      "enum": ["not supported"]
-                                    }
-                                  }
-                                }
-                              },
-                              "code": {
-                                "type": "integer",
-                                "enum": [ 1005 ]
-                              },
-                              "description": {
+              "400": { "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestSubtype/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestMissingParameter/content/application~1json/schema"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "errors": {
+                        "type": "object",
+                        "properties": {
+                            "rendition_type": {
+                            "type": "array",
+                            "items": {
                                 "type": "string",
-                                "enum": [ "Input Validation Error" ]
-                              }
+                                "enum": ["not supported"]
+                            }
                             }
                         }
+                        },
+                        "code": {
+                        "type": "integer",
+                        "enum": [ 1005 ]
+                        },
+                        "description": {
+                        "type": "string",
+                        "enum": [ "Input Validation Error" ]
+                        }
                     }
-                }
-              }]},
+              }]}}}},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
@@ -1731,41 +1717,35 @@
               "200": {
                 "description": "Asset rendition file"
               },
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestGUID"
-              },
-              {
-                "description": "Request failed due to unsupported rendition type",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                              "errors": {
-                                "type": "object",
-                                "properties": {
-                                  "rendition_type": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string",
-                                      "enum": ["not supported"]
-                                    }
-                                  }
-                                }
-                              },
-                              "code": {
-                                "type": "integer",
-                                "enum": [ 1005 ]
-                              },
-                              "description": {
-                                "type": "string",
-                                "enum": [ "Input Validation Error" ]
-                              }
-                            }
+              "400": { "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
+                },
+                {
+                "type": "object",
+                "properties": {
+                    "errors": {
+                    "type": "object",
+                    "properties": {
+                        "rendition_type": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": ["not supported"]
+                        }
                         }
                     }
+                    },
+                    "code": {
+                    "type": "integer",
+                    "enum": [ 1005 ]
+                    },
+                    "description": {
+                    "type": "string",
+                    "enum": [ "Input Validation Error" ]
+                    }
                 }
-              }]},
+              }]}}}},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
@@ -1855,30 +1835,32 @@
               "201": {
                 "description": "Created"
               },
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestGUID"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestJSON"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestSubtype"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestPayload"
-              }]},
+              "400": { "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestSubtype/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
+              }]}}}},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenExists"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenQuota"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenExists/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenQuota/content/application~1json/schema"
+              }]}}}},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
@@ -1941,12 +1923,13 @@
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403":{ "anyOf": [{
-                "$ref": "#/components/responses/Forbidden"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenKey"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+              }]}}}},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
@@ -2023,21 +2006,23 @@
               "201": {
                 "description": "Created"
               },
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestJSON"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestPayload"
-              }]},
+              "400": { "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
+              }]}}}},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenExists"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenExists/content/application~1json/schema"
+              }]}}}},
               "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
@@ -2174,15 +2159,16 @@
               "401":{
                 "$ref":"#/components/responses/Unauthorized"
               },
-              "403":{ "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
-              },
-              {
-                "$ref": "#/components/responses/Forbidden"
-              },
-              {
-                "$ref":"#/components/responses/ForbiddenOperation"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+                },
+                {
+                    "$ref":"#/components/responses/ForbiddenOperation/content/application~1json/schema"
+              }]}}}},
               "404":{
                 "$ref":"#/components/responses/NotFound"
               },
@@ -2249,24 +2235,26 @@
               "204": {
                 "description": "No Content"
               },
-              "400": { "anyOf": [{
-                "$ref": "#/components/responses/BadRequestJSON"
-              },
-              {
-                "$ref": "#/components/responses/BadRequestPayload"
-              }]},
+              "400": { "description": "The request failed due to an invalid something.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
+              }]}}}},
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
-              },
-              {
-                "$ref": "#/components/responses/Forbidden"
-              },
-              {
-                "$ref":"#/components/responses/ForbiddenOperation"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+                },
+                {
+                    "$ref":"#/components/responses/ForbiddenOperation/content/application~1json/schema"
+              }]}}}},
               "415": {
                 "$ref": "#/components/responses/UnsupportedMediaType"
               },
@@ -2331,15 +2319,16 @@
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
-              },
-              {
-                "$ref": "#/components/responses/Forbidden"
-              },
-              {
-                "$ref":"#/components/responses/ForbiddenOperation"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+                },
+                {
+                    "$ref":"#/components/responses/ForbiddenOperation/content/application~1json/schema"
+              }]}}}},
               "503": {
                 "$ref": "#/components/responses/ServiceUnavailable"
               }
@@ -2457,12 +2446,13 @@
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/Forbidden"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenKey"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+              }]}}}},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
@@ -2636,12 +2626,13 @@
               "401": {
                 "$ref": "#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/Forbidden"
-              },
-              {
-                "$ref": "#/components/responses/ForbiddenKey"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+              }]}}}},
               "404": {
                 "$ref": "#/components/responses/NotFound"
               },
@@ -2988,15 +2979,16 @@
               "401":{
                 "$ref":"#/components/responses/Unauthorized"
               },
-              "403": { "anyOf": [{
-                "$ref": "#/components/responses/ForbiddenKey"
-              },
-              {
-                "$ref": "#/components/responses/Forbidden"
-              },
-              {
-                "$ref":"#/components/responses/ForbiddenOperation"
-              }]},
+              "403": { "description": "The request failed due to insufficient permissions.",
+                "content": { "application/json": { "schema": { "anyOf": [{
+                    "$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
+                },
+                {
+                    "$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+                },
+                {
+                    "$ref":"#/components/responses/ForbiddenOperation/content/application~1json/schema"
+              }]}}}},
               "404":{
                 "$ref":"#/components/responses/NotFound"
               },
