@@ -658,14 +658,14 @@
 							"application/json": {
 								"schema": {
 									"oneOf": [
-										{"$ref": "#/components/schemas/ForbiddenKey"},
+										{"$ref": "#/components/schemas/ForbiddenKeyError"},
 										{"$ref": "#/components/schemas/ResourceExistsError"},
 										{"$ref": "#/components/schemas/QuotaExceededError"}
 									]
 								},
 								"examples": {
 									"InvalidApiKey": {
-										"$ref": "#/components/examples/ForbiddenExistsExample"
+										"$ref": "#/components/examples/ForbiddenKeyExample"
 									},
 									"ResourceExists": {
 										"$ref": "#/components/examples/AssetExistsErrorExample"
