@@ -3908,6 +3908,19 @@
 			}
 		},
 		"examples": {
+			"ForbiddenExistsExample": {
+				"summary": "ForbiddenExistsError",
+				"value": {
+					"errors": {
+						"<resource_type>": [
+							"already exists"
+						]
+					},
+					"code": 1002,
+					"description": "Resource already exists"
+				}
+				
+			},
 			"ForbiddenKeyExample": {
 				"summary": "Invalid API Key",
 				"value": {
@@ -3969,7 +3982,31 @@
 					}
 				}
 			},
-			
+			"ForbiddenExistsError": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"<resource_type>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "already exists"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1002 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Resource already exists" ]
+					}
+				}			
+			},
 			"ForbiddenKeyError": {
 				"type": "object",
 				"properties": {
