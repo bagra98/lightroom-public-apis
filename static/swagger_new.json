@@ -498,16 +498,24 @@
 					},
 					"403": {
 						"description": "The request failed due to insufficient permissions.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/ForbiddenAccount/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/Forbidden/content/application~1json/schema"
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CatalogAccessError"
+								},
+								"examples": {
+									"InvalidApiKey": {
+										"$ref": "#/components/examples/ForbiddenKeyExample"
+									},
+									"Forbidden": {
+										"$ref": "#/components/examples/ForbiddenExample"
+									},
+									"InvalidAccountState": {
+										"$ref": "#/components/examples/ForbiddenAccountExample"
+									}
+								}
 							}
-						]}}}
+						}
 					},
 					"404": {
 						"$ref": "#/components/responses/NotFound"
@@ -646,15 +654,28 @@
 					},
 					"403": {
 						"description": "The request failed due to insufficient permissions",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/ForbiddenExists/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/ForbiddenQuota/content/application~1json/schema"
-							}]}}}
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/ForbiddenKey"},
+										{"$ref": "#/components/schemas/ResourceExistsError"},
+										{"$ref": "#/components/schemas/QuotaExceededError"}
+									]
+								},
+								"examples": {
+									"InvalidApiKey": {
+										"$ref": "#/components/examples/ForbiddenExistsExample"
+									},
+									"ResourceExists": {
+										"$ref": "#/components/examples/AssetExistsErrorExample"
+									},
+									"QuotaExceeded": {
+										"$ref": "#/components/examples/AssetQuotaExceededErrorExample"
+									}
+								}
+							}
+						}
 					},
 					"404": {
 						"$ref": "#/components/responses/NotFound"
@@ -3886,7 +3907,170 @@
 				}
 			}
 		},
+		"examples": {
+			"ForbiddenKeyExample": {
+				"summary": "Invalid API Key",
+				"value": {
+					"code": 403003,
+					"description": "API Key is invalid"
+				}
+			},
+			"ErrorExample": {
+				"summary": "Error",
+				"value": {
+					"code": 403003,
+					"description": "API Key is invalid"
+				}
+			},
+			"AssetExistsErrorExample": {
+				"summary": "ResourceExistsError",
+				"value": {
+					"errors": {"asset": [ "already exists"]},
+					"code": 1002,
+					"description": "Resource already exists"
+				}
+			},
+			"ForbiddenAccountExample": {
+				"summary": "Forbidden Account",
+				"value": {
+					"code": 4301,
+					"description": "Access forbidden due to account state of resource owner"
+				}
+			},
+			"AssetQuotaExceededErrorExample": {
+				"summary": "QuotaExceededError",
+				"value": {
+					"errors": {"<asset_id>": [ "quota exceeded"]},
+					"code": 1043,
+					"description": "Too many assets"
+					
+				}
+			},
+			"ForbiddenExample": {
+				"summary": "Forbidden",
+				"value": {
+					"code": 4300,
+					"description": "Access is forbidden"
+				}
+			},
+			
+		},
 		"schemas": {
+			"CatalogAccessError": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer",
+						"enum": [ 403003, 4300, 4301]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "API Key is invalid", "Access is forbidden", "Access forbidden due to account state of resource owner"]
+					}
+				}
+			},
+			
+			"ForbiddenKeyError": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer",
+						"enum": [ 403003]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "API Key is invalid"]
+					}
+				}
+			},
+			"ForbiddenAccountError": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer",
+						"enum": [ 4301]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Access forbidden due to account state of resource owner"]
+					}
+				}
+			},
+			"ForbiddenError": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer",
+						"enum": [ 4300]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Access is forbidden"]
+					}
+				}
+			},
+			
+			"Error": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"ResourceExistsError": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"<resource_type>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "already exists"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1002 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Resource already exists" ]
+					}
+				}
+			},
+			"QuotaExceededError": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"<asset_id>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "quota exceeded"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1043 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Too many assets" ]
+					}
+				}
+			},
 			"iso8601DateTime": {
 				"pattern": "^([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]|[0-9][1-9][0-9]{2}|[1-9][0-9]{3})-((02-([1-2][0-9]|0[1-9]))|((01|03|05|07|08|10|12)-(3[0-1]|[1-2][0-9]|0[1-9]))|((04|06|09|11)-(30|[1-2][0-9]|0[1-9])))T(2[0-3]|[0-1][0-9]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(((\\+|-)(2[0-3]|[0-1][0-9])(:?[0-5][0-9])?)|Z)?$",
 				"type": "string",
