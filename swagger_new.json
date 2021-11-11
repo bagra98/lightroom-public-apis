@@ -4158,7 +4158,7 @@
 						}
 					}
 				}
-			}
+			},
 			"ForbiddenKeyError": {
 				"type": "object",
 				"properties": {
