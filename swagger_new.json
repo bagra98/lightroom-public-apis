@@ -729,191 +729,26 @@
 				],
 				"responses": {
 					"200": {
-						"description": "OK",
-						"content": {
-							"application/json": { "schema": { "anyOf": [{
-								"type": "object",
-								"properties": {
-									"base" : {
-										"type": "string",
-										"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
-									},
-									"id": {
-										"$ref": "#/components/schemas/uuid"
-									},
-									"type": {
-										"type": "string",
-										"enum": ["asset"]
-									},
-									"subtype": {
-										"type": "string"
-									},
-									"created": {
-										"$ref": "#/components/schemas/utcDateTime"
-									},
-									"updated": {
-										"$ref": "#/components/schemas/utcDateTime"
-									},
-									"links": {
-										"type": "object"
-									},
-									"payload": {
-										"type": "object"
-									}
-								},
-								"example": {
-									"base": "<base_url>",
-									"id": "<asset_id>",
-									"type": "asset",
-									"subtype": "image",
-									"created": "<created_date>",
-									"updated": "<updated_date>",
-									"links": {
-										"self": {
-											"href": "assets/<asset_id>"
-										},
-										"/rels/master_create": {
-											"href": "assets/<asset_id>/master"
-										},
-										"/rels/xmp_develop_create": {
-											"href": "assets/<asset_id>/xmp/develop"
-										},
-										"/rels/rendition_type/<rendition_type>": {
-											"href": "assets/<asset_id>/renditions/<rendition_type>"
-										},
-										"/rels/xmp/develop": {
-											"href": "assets/<asset_id>/xmp/develop",
-											"invalid": "true",
-											"fileSize": "<external_xmp_develop_setting_file_size>"
-										}
-									},
-									"payload": {
-										"captureDate": "<image_capture_date>",
-										"importSource": {
-											"fileName": "<file_name>",
-											"fileSize": "<image_file_size>",
-											"originalWidth": "<image_width>",
-											"originalHeight": "<image_height>",
-											"sha256": "<image_sha256>",
-											"importedOnDevice": "<import_device_name>",
-											"importedBy": "<import_account_id>",
-											"importTimestamp": "<import_time>"
-										},
-										"<key>": "<value>",
-										"develop": {
-											"<dev_key>": "<dev_value>"
-										}
-									}
-								}
-							},
-								{
-									"type": "object",
-									"properties": {
-										"base" : {
-											"type": "string",
-											"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
-										},
-										"id": {
-											"$ref": "#/components/schemas/uuid"
-										},
-										"type": {
-											"type": "string",
-											"enum": ["asset"]
-										},
-										"subtype": {
-											"type": "string"
-										},
-										"created": {
-											"$ref": "#/components/schemas/utcDateTime"
-										},
-										"updated": {
-											"$ref": "#/components/schemas/utcDateTime"
-										},
-										"links": {
-											"type": "object"
-										},
-										"payload": {
-											"type": "object"
-										},
-										"favorites": {
-											"type": "object",
-											"properties" : {
-												"account_id": {
-													"$ref": "#/components/schemas/utcDateTime"
-												}
-											}
-
-										},
-										"fingerprint": {
-											"type": "object"
-										}
-									},
-									"example": {
-										"base": "<base_url>",
-										"id": "<asset_id>",
-										"links": {
-											"self": {
-												"href": "assets/<asset_id>"
-											},
-											"/rels/master_create": {
-												"href": "assets/<asset_id>/master"
-											},
-											"/rels/xmp_develop_create": {
-												"href": "assets/<asset_id>/xmp/develop"
-											},
-											"/rels/rendition_type/<rendition_type>": {
-												"href": "assets/<asset_id>/renditions/<rendition_type>"
-											},
-											"/rels/xmp/develop": {
-												"href": "assets/<asset_id>/xmp/develop",
-												"invalid": "true",
-												"fileSize": "<external_xmp_develop_setting_file_size>"
-											}
-										},
-										"created": "<created_date>",
-										"updated": "<updated_date>",
-										"subtype": "video",
-										"unshareable": "<unshareable>",
-										"payload": {
-											"captureDate": "<image_capture_date>",
-											"importSource": {
-												"fileName": "<file_name>",
-												"fileSize": "<image_file_size>",
-												"originalWidth": "<image_width>",
-												"originalHeight": "<image_height>",
-												"sha256": "<image_sha256>",
-												"importedOnDevice": "<import_device_name>",
-												"importedBy": "<import_account_id>",
-												"importTimestamp": "<import_time>"
-											},
-											"video": {
-												"frameRate": [
-													"<video_frame_rate_numerator>",
-													"<video_frame_rate_denominator>"
-												],
-												"duration": [
-													"<video_duration_numerator>",
-													"<video_duration_denominator>"
-												],
-												"displayAspectRatio": [
-													"<video_aspect_ratio_numerator>",
-													"<video_aspect_ratio_denominator>"
-												],
-												"storageWidth": "<video_storage_width>",
-												"storageHeight": "<video_storage_height>"
-											},
-											"<key>": "<value>",
-											"develop": {
-												"<dev_key>": "<dev_value>"
-											}
-										},
-										"favorites": {
-											"<account_id>": "<created_date>"
-										}
-									}
-								}
-							]}}}
-					},
+ 						"description": "OK",
+ 						"content": {
+ 							"application/json": {
+ 								"schema": {
+ 									"oneOf": [
+ 										{"$ref": "#/components/schemas/SuccessImageAsset"},
+ 										{"$ref": "#/components/schemas/SuccessVideoAsset"}
+ 									]
+ 								},
+ 								"examples": {
+ 									"SuccessImageAsset": {
+ 										"$ref": "#/components/examples/SuccessImageAssetExample"
+ 									},
+ 									"SuccessVideoAsset": {
+ 										"$ref": "#/components/examples/SuccessVideoAssetExample"
+ 									}
+ 								}
+ 							}
+ 						}
+ 					},
 					"400": { "description": "The request failed due to an invalid input.",
 						"content": { "application/json": { "schema": { "anyOf": [{
 							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
@@ -1104,350 +939,27 @@
 				],
 				"responses": {
 					"200": {
-						"description": "OK",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"type": "object",
-							"properties": {
-								"base" : {
-									"type": "string",
-									"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
-								},
-								"resources": {
-									"type": "array",
-									"items": {
-										"type": "object",
-										"properties": {
-											"id": {
-												"$ref": "#/components/schemas/uuid"
-											},
-											"type": {
-												"type": "string",
-												"enum": ["asset"]
-											},
-											"subtype": {
-												"type": "string"
-											},
-											"created": {
-												"$ref": "#/components/schemas/utcDateTime"
-											},
-											"updated": {
-												"$ref": "#/components/schemas/utcDateTime"
-											},
-											"links": {
-												"type": "object"
-											},
-											"payload": {
-												"type": "object"
-											}
-										}
-									}
-								}
-							},
-							"example": {
-								"base": "<base_url>",
-								"resources": [
-									{
-										"id": "<asset_id>",
-										"type": "asset",
-										"subtype": "image",
-										"created": "<created_date>",
-										"updated": "<updated_date>",
-										"links": {
-											"self": {
-												"href": "assets/<asset_id>"
-											},
-											"/rels/master_create": {
-												"href": "assets/<asset_id>/master"
-											},
-											"/rels/xmp_develop_create": {
-												"href": "assets/<asset_id>/xmp/develop"
-											},
-											"/rels/rendition_type/<rendition_type>": {
-												"href": "assets/<asset_id>/renditions/<rendition_type>"
-											},
-											"/rels/xmp/develop": {
-												"href": "assets/<asset_id>/xmp/develop",
-												"invalid": "true",
-												"fileSize": "<external_xmp_develop_setting_file_size>"
-											}
-										},
-										"payload": {
-											"captureDate": "<image_capture_date>",
-											"importSource": {
-												"fileName": "<file_name>",
-												"fileSize": "<image_file_size>",
-												"originalWidth": "<image_width>",
-												"originalHeight": "<image_height>",
-												"sha256": "<image_sha256>",
-												"importedOnDevice": "<import_device_name>",
-												"importedBy": "<import_account_id>",
-												"importTimestamp": "<import_time>"
-											},
-											"<key>": "<value>",
-											"develop": {
-												"<dev_key>": "<dev_value>"
-											}
-										}
-									},
-									{
-										"id": "<asset_id>",
-										"type": "asset",
-										"subtype": "video",
-										"created": "<created_date>",
-										"updated": "<updated_date>",
-										"links": {
-											"self": {
-												"href": "assets/<asset_id>"
-											},
-											"/rels/master_create": {
-												"href": "assets/<asset_id>/master"
-											},
-											"/rels/xmp_develop_create": {
-												"href": "assets/<asset_id>/xmp/develop"
-											},
-											"/rels/rendition_type/<rendition_type>": {
-												"href": "assets/<asset_id>/renditions/<rendition_type>"
-											},
-											"/rels/xmp/develop": {
-												"href": "assets/<asset_id>/xmp/develop",
-												"invalid": "true",
-												"fileSize": "<external_xmp_develop_setting_file_size>"
-											}
-										},
-										"unshareable": "<unshareable>",
-										"payload": {
-											"captureDate": "<image_capture_date>",
-											"importSource": {
-												"fileName": "<file_name>",
-												"fileSize": "<image_file_size>",
-												"originalWidth": "<image_width>",
-												"originalHeight": "<image_height>",
-												"sha256": "<image_sha256>",
-												"importedOnDevice": "<import_device_name>",
-												"importedBy": "<import_account_id>",
-												"importTimestamp": "<import_time>"
-											},
-											"video": {
-												"frameRate": [
-													"<video_frame_rate_numerator>",
-													"<video_frame_rate_denominator>"
-												],
-												"duration": [
-													"<video_duration_numerator>",
-													"<video_duration_denominator>"
-												],
-												"displayAspectRatio": [
-													"<video_aspect_ratio_numerator>",
-													"<video_aspect_ratio_denominator>"
-												],
-												"storageWidth": "<video_storage_width>",
-												"storageHeight": "<video_storage_height>"
-											},
-											"<key>": "<value>",
-											"develop": {
-												"<dev_key>": "<dev_value>"
-											}
-										}
-									}
-								],
-								"links": {
-									"prev": {
-										"href": "albums/<album_id>/assets?captured_after=<first_captured_date>"
-									},
-									"next": {
-										"href": "albums/<album_id>/assets?captured_before=<last_captured_date>"
-									},
-									"/rels/asset": {
-										"href": "assets/{asset_id}",
-										"templated": true
-									}
-								}
-							}
-						},
-							{
-								"type": "object",
-								"properties": {
-									"base" : {
-										"type": "string",
-										"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
-									},
-									"resources": {
-										"type": "array",
-										"items": {
-											"type": "object",
-											"properties": {
-												"id": {
-													"$ref": "#/components/schemas/uuid"
-												},
-												"type": {
-													"type": "string",
-													"enum": ["asset"]
-												},
-												"subtype": {
-													"type": "string"
-												},
-												"created": {
-													"$ref": "#/components/schemas/utcDateTime"
-												},
-												"updated": {
-													"$ref": "#/components/schemas/utcDateTime"
-												},
-												"links": {
-													"type": "object"
-												},
-												"payload": {
-													"type": "object"
-												}
-											}
-										}
-									},
-									"errors": {
-										"type": "array",
-										"items": {
-											"type": "object",
-											"properties": {
-												"id": {
-													"$ref": "#/components/schemas/uuid"
-												},
-												"code": {
-													"type": "integer"
-												},
-												"description": {
-													"type": "string"
-												}
-											}
-										}
-									},
-									"links": {
-										"type": "object"
-									}
-								},
-								"example": {
-									"base": "<base_url>",
-									"resources": [
-										{
-											"id": "<asset_id>",
-											"type": "asset",
-											"subtype": "image",
-											"created": "<created_date>",
-											"updated": "<updated_date>",
-											"links": {
-												"self": {
-													"href": "assets/<asset_id>"
-												},
-												"/rels/master_create": {
-													"href": "assets/<asset_id>/master"
-												},
-												"/rels/xmp_develop_create": {
-													"href": "assets/<asset_id>/xmp/develop"
-												},
-												"/rels/rendition_type/<rendition_type>": {
-													"href": "assets/<asset_id>/renditions/<rendition_type>"
-												},
-												"/rels/xmp/develop": {
-													"href": "assets/<asset_id>/xmp/develop",
-													"invalid": "true",
-													"fileSize": "<external_xmp_develop_setting_file_size>"
-												}
-											},
-											"payload": {
-												"captureDate": "<image_capture_date>",
-												"importSource": {
-													"fileName": "<file_name>",
-													"fileSize": "<image_file_size>",
-													"originalWidth": "<image_width>",
-													"originalHeight": "<image_height>",
-													"sha256": "<image_sha256>",
-													"importedOnDevice": "<import_device_name>",
-													"importedBy": "<import_account_id>",
-													"importTimestamp": "<import_time>"
-												},
-												"<key>": "<value>",
-												"develop": {
-													"<dev_key>": "<dev_value>"
-												}
-											}
-										},
-										{
-											"id": "<asset_id>",
-											"type": "asset",
-											"subtype": "video",
-											"created": "<created_date>",
-											"updated": "<updated_date>",
-											"links": {
-												"self": {
-													"href": "assets/<asset_id>"
-												},
-												"/rels/master_create": {
-													"href": "assets/<asset_id>/master"
-												},
-												"/rels/xmp_develop_create": {
-													"href": "assets/<asset_id>/xmp/develop"
-												},
-												"/rels/rendition_type/<rendition_type>": {
-													"href": "assets/<asset_id>/renditions/<rendition_type>"
-												},
-												"/rels/xmp/develop": {
-													"href": "assets/<asset_id>/xmp/develop",
-													"invalid": "true",
-													"fileSize": "<external_xmp_develop_setting_file_size>"
-												}
-											},
-											"unshareable": "<unshareable>",
-											"payload": {
-												"captureDate": "<image_capture_date>",
-												"importSource": {
-													"fileName": "<file_name>",
-													"fileSize": "<image_file_size>",
-													"originalWidth": "<image_width>",
-													"originalHeight": "<image_height>",
-													"sha256": "<image_sha256>",
-													"importedOnDevice": "<import_device_name>",
-													"importedBy": "<import_account_id>",
-													"importTimestamp": "<import_time>"
-												},
-												"video": {
-													"frameRate": [
-														"<video_frame_rate_numerator>",
-														"<video_frame_rate_denominator>"
-													],
-													"duration": [
-														"<video_duration_numerator>",
-														"<video_duration_denominator>"
-													],
-													"displayAspectRatio": [
-														"<video_aspect_ratio_numerator>",
-														"<video_aspect_ratio_denominator>"
-													],
-													"storageWidth": "<video_storage_width>",
-													"storageHeight": "<video_storage_height>"
-												},
-												"<key>": "<value>",
-												"develop": {
-													"<dev_key>": "<dev_value>"
-												}
-											}
-										}
-									],
-									"errors": [
-										{
-											"id": "<asset_id>",
-											"code": 1000,
-											"description": "Resource not found"
-										}
-									],
-									"links": {
-										"/rels/asset": {
-											"href": "assets/{asset_id}",
-											"templated": true
-										}
-									}
-								}
-							}
-						]}}
-						}
-					},
-					"400": { "description": "The request failed due to an invalid input.",
+ 						"description": "OK",
+ 						"content": {
+ 							"application/json": {
+ 								"schema": {
+ 									"oneOf": [
+ 										{"$ref": "#/components/schemas/Success"},
+ 										{"$ref": "#/components/schemas/SuccessQueryParam"}
+ 									]
+ 								},
+ 								"examples": {
+ 									"Success": {
+ 										"$ref": "#/components/examples/SuccessExample"
+ 									},
+ 									"SuccessQueryParam": {
+ 										"$ref": "#/components/examples/SuccessQueryParamExample"
+ 									}
+ 								}
+ 							}
+ 						}
+ 					},
+					400": { "description": "The request failed due to an invalid input.",
 						"content": { "application/json": { "schema": { "anyOf": [{
 							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
 						},
@@ -4003,6 +3515,366 @@
 			}
 		},
 		"examples": {
+			"SuccessImageAssetExample": {
+				"summary": "SuccessImageAsset",
+				"value": {
+					"base": "<base_url>",
+					"id": "<asset_id>",
+					"type": "asset",
+					"subtype": "image",
+					"created": "<created_date>",
+					"updated": "<updated_date>",
+					"links": {
+						"self": {
+							"href": "assets/<asset_id>"
+						},
+						"/rels/master_create": {
+							"href": "assets/<asset_id>/master"
+						},
+						"/rels/xmp_develop_create": {
+							"href": "assets/<asset_id>/xmp/develop"
+						},
+						"/rels/rendition_type/<rendition_type>": {
+							"href": "assets/<asset_id>/renditions/<rendition_type>"
+						},
+						"/rels/xmp/develop": {
+							"href": "assets/<asset_id>/xmp/develop",
+							"invalid": "true",
+							"fileSize": "<external_xmp_develop_setting_file_size>"
+						}
+					},
+					"payload": {
+						"captureDate": "<image_capture_date>",
+						"importSource": {
+							"fileName": "<file_name>",
+							"fileSize": "<image_file_size>",
+							"originalWidth": "<image_width>",
+							"originalHeight": "<image_height>",
+							"sha256": "<image_sha256>",
+							"importedOnDevice": "<import_device_name>",
+							"importedBy": "<import_account_id>",
+							"importTimestamp": "<import_time>"
+						},
+						"<key>": "<value>",
+						"develop": {
+							"<dev_key>": "<dev_value>"
+						}
+					}
+				}
+			},
+			"SuccessVideoAssetExample":{
+				"summary": "SuccessVideoAsset",
+				"value": {
+					"base": "<base_url>",
+					"id": "<asset_id>",
+					"links": {
+						"self": {
+							"href": "assets/<asset_id>"
+						},
+						"/rels/master_create": {
+							"href": "assets/<asset_id>/master"
+						},
+						"/rels/xmp_develop_create": {
+							"href": "assets/<asset_id>/xmp/develop"
+						},
+						"/rels/rendition_type/<rendition_type>": {
+							"href": "assets/<asset_id>/renditions/<rendition_type>"
+						},
+						"/rels/xmp/develop": {
+							"href": "assets/<asset_id>/xmp/develop",
+							"invalid": "true",
+							"fileSize": "<external_xmp_develop_setting_file_size>"
+						}
+					},
+					"created": "<created_date>",
+					"updated": "<updated_date>",
+					"subtype": "video",
+					"unshareable": "<unshareable>",
+					"payload": {
+						"captureDate": "<image_capture_date>",
+						"importSource": {
+							"fileName": "<file_name>",
+							"fileSize": "<image_file_size>",
+							"originalWidth": "<image_width>",
+							"originalHeight": "<image_height>",
+							"sha256": "<image_sha256>",
+							"importedOnDevice": "<import_device_name>",
+							"importedBy": "<import_account_id>",
+							"importTimestamp": "<import_time>"
+						},
+						"video": {
+							"frameRate": [
+								"<video_frame_rate_numerator>",
+								"<video_frame_rate_denominator>"
+							],
+							"duration": [
+								"<video_duration_numerator>",
+								"<video_duration_denominator>"
+							],
+							"displayAspectRatio": [
+								"<video_aspect_ratio_numerator>",
+								"<video_aspect_ratio_denominator>"
+							],
+							"storageWidth": "<video_storage_width>",
+							"storageHeight": "<video_storage_height>"
+						},
+						"<key>": "<value>",
+						"develop": {
+							"<dev_key>": "<dev_value>"
+						}
+					},
+					"favorites": {
+						"<account_id>": "<created_date>"
+					}
+				}
+			},
+			"SuccessExample": {
+				"summary": "Success",
+				"value": {
+					"base": "<base_url>",
+					"resources": [
+						{
+							"id": "<asset_id>",
+							"type": "asset",
+							"subtype": "image",
+							"created": "<created_date>",
+							"updated": "<updated_date>",
+							"links": {
+								"self": {
+									"href": "assets/<asset_id>"
+								},
+								"/rels/master_create": {
+									"href": "assets/<asset_id>/master"
+								},
+								"/rels/xmp_develop_create": {
+									"href": "assets/<asset_id>/xmp/develop"
+								},
+								"/rels/rendition_type/<rendition_type>": {
+									"href": "assets/<asset_id>/renditions/<rendition_type>"
+								},
+								"/rels/xmp/develop": {
+									"href": "assets/<asset_id>/xmp/develop",
+									"invalid": "true",
+									"fileSize": "<external_xmp_develop_setting_file_size>"
+								}
+							},
+							"payload": {
+								"captureDate": "<image_capture_date>",
+								"importSource": {
+									"fileName": "<file_name>",
+									"fileSize": "<image_file_size>",
+									"originalWidth": "<image_width>",
+									"originalHeight": "<image_height>",
+									"sha256": "<image_sha256>",
+									"importedOnDevice": "<import_device_name>",
+									"importedBy": "<import_account_id>",
+									"importTimestamp": "<import_time>"
+								},
+								"<key>": "<value>",
+								"develop": {
+									"<dev_key>": "<dev_value>"
+								}
+							}
+						},
+						{
+							"id": "<asset_id>",
+							"type": "asset",
+							"subtype": "video",
+							"created": "<created_date>",
+							"updated": "<updated_date>",
+							"links": {
+								"self": {
+									"href": "assets/<asset_id>"
+								},
+								"/rels/master_create": {
+									"href": "assets/<asset_id>/master"
+								},
+								"/rels/xmp_develop_create": {
+									"href": "assets/<asset_id>/xmp/develop"
+								},
+								"/rels/rendition_type/<rendition_type>": {
+									"href": "assets/<asset_id>/renditions/<rendition_type>"
+								},
+								"/rels/xmp/develop": {
+									"href": "assets/<asset_id>/xmp/develop",
+									"invalid": "true",
+									"fileSize": "<external_xmp_develop_setting_file_size>"
+								}
+							},
+							"unshareable": "<unshareable>",
+							"payload": {
+								"captureDate": "<image_capture_date>",
+								"importSource": {
+									"fileName": "<file_name>",
+									"fileSize": "<image_file_size>",
+									"originalWidth": "<image_width>",
+									"originalHeight": "<image_height>",
+									"sha256": "<image_sha256>",
+									"importedOnDevice": "<import_device_name>",
+									"importedBy": "<import_account_id>",
+									"importTimestamp": "<import_time>"
+								},
+								"video": {
+									"frameRate": [
+										"<video_frame_rate_numerator>",
+										"<video_frame_rate_denominator>"
+									],
+									"duration": [
+										"<video_duration_numerator>",
+										"<video_duration_denominator>"
+									],
+									"displayAspectRatio": [
+										"<video_aspect_ratio_numerator>",
+										"<video_aspect_ratio_denominator>"
+									],
+									"storageWidth": "<video_storage_width>",
+									"storageHeight": "<video_storage_height>"
+								},
+								"<key>": "<value>",
+								"develop": {
+									"<dev_key>": "<dev_value>"
+								}
+							}
+						}
+					],
+					"links": {
+						"prev": {
+							"href": "albums/<album_id>/assets?captured_after=<first_captured_date>"
+						},
+						"next": {
+							"href": "albums/<album_id>/assets?captured_before=<last_captured_date>"
+						},
+						"/rels/asset": {
+							"href": "assets/{asset_id}",
+							"templated": true
+						}
+					}
+				}
+			},
+			"SuccessQueryParamExample": {
+				"summary": "Asset_ids query param present",
+				"value": {
+					"base": "<base_url>",
+					"resources": [
+						{
+							"id": "<asset_id>",
+							"type": "asset",
+							"subtype": "image",
+							"created": "<created_date>",
+							"updated": "<updated_date>",
+							"links": {
+								"self": {
+									"href": "assets/<asset_id>"
+								},
+								"/rels/master_create": {
+									"href": "assets/<asset_id>/master"
+								},
+								"/rels/xmp_develop_create": {
+									"href": "assets/<asset_id>/xmp/develop"
+								},
+								"/rels/rendition_type/<rendition_type>": {
+									"href": "assets/<asset_id>/renditions/<rendition_type>"
+								},
+								"/rels/xmp/develop": {
+									"href": "assets/<asset_id>/xmp/develop",
+									"invalid": "true",
+									"fileSize": "<external_xmp_develop_setting_file_size>"
+								}
+							},
+							"payload": {
+								"captureDate": "<image_capture_date>",
+								"importSource": {
+									"fileName": "<file_name>",
+									"fileSize": "<image_file_size>",
+									"originalWidth": "<image_width>",
+									"originalHeight": "<image_height>",
+									"sha256": "<image_sha256>",
+									"importedOnDevice": "<import_device_name>",
+									"importedBy": "<import_account_id>",
+									"importTimestamp": "<import_time>"
+								},
+								"<key>": "<value>",
+								"develop": {
+									"<dev_key>": "<dev_value>"
+								}
+							}
+						},
+						{
+							"id": "<asset_id>",
+							"type": "asset",
+							"subtype": "video",
+							"created": "<created_date>",
+							"updated": "<updated_date>",
+							"links": {
+								"self": {
+									"href": "assets/<asset_id>"
+								},
+								"/rels/master_create": {
+									"href": "assets/<asset_id>/master"
+								},
+								"/rels/xmp_develop_create": {
+									"href": "assets/<asset_id>/xmp/develop"
+								},
+								"/rels/rendition_type/<rendition_type>": {
+									"href": "assets/<asset_id>/renditions/<rendition_type>"
+								},
+								"/rels/xmp/develop": {
+									"href": "assets/<asset_id>/xmp/develop",
+									"invalid": "true",
+									"fileSize": "<external_xmp_develop_setting_file_size>"
+								}
+							},
+							"unshareable": "<unshareable>",
+							"payload": {
+								"captureDate": "<image_capture_date>",
+								"importSource": {
+									"fileName": "<file_name>",
+									"fileSize": "<image_file_size>",
+									"originalWidth": "<image_width>",
+									"originalHeight": "<image_height>",
+									"sha256": "<image_sha256>",
+									"importedOnDevice": "<import_device_name>",
+									"importedBy": "<import_account_id>",
+									"importTimestamp": "<import_time>"
+								},
+								"video": {
+									"frameRate": [
+										"<video_frame_rate_numerator>",
+										"<video_frame_rate_denominator>"
+									],
+									"duration": [
+										"<video_duration_numerator>",
+										"<video_duration_denominator>"
+									],
+									"displayAspectRatio": [
+										"<video_aspect_ratio_numerator>",
+										"<video_aspect_ratio_denominator>"
+									],
+									"storageWidth": "<video_storage_width>",
+									"storageHeight": "<video_storage_height>"
+								},
+								"<key>": "<value>",
+								"develop": {
+									"<dev_key>": "<dev_value>"
+								}
+							}
+						}
+					],
+					"errors": [
+						{
+							"id": "<asset_id>",
+							"code": 1000,
+							"description": "Resource not found"
+						}
+					],
+					"links": {
+						"/rels/asset": {
+							"href": "assets/{asset_id}",
+							"templated": true
+						}
+					}
+				}
+			},
 			"ForbiddenExistsExample": {
 				"summary": "ForbiddenExistsError",
 				"value": {
@@ -4068,6 +3940,178 @@
 			}
 		},
 		"schemas": {
+			"SuccessImageAsset": {
+				"type": "object",
+				"properties": {
+					"base" : {
+						"type": "string",
+						"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
+					},
+					"id": {
+						"$ref": "#/components/schemas/uuid"
+					},
+					"type": {
+						"type": "string",
+						"enum": ["asset"]
+					},
+					"subtype": {
+						"type": "string"
+					},
+					"created": {
+						"$ref": "#/components/schemas/utcDateTime"
+					},
+					"updated": {
+						"$ref": "#/components/schemas/utcDateTime"
+					},
+					"links": {
+						"type": "object"
+					},
+					"payload": {
+						"type": "object"
+					}
+				}
+			},
+			"SuccessVideoAsset":{
+				"type": "object",
+				"properties": {
+					"base" : {
+						"type": "string",
+						"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
+					},
+					"id": {
+						"$ref": "#/components/schemas/uuid"
+					},
+					"type": {
+						"type": "string",
+						"enum": ["asset"]
+					},
+					"subtype": {
+						"type": "string"
+					},
+					"created": {
+						"$ref": "#/components/schemas/utcDateTime"
+					},
+					"updated": {
+						"$ref": "#/components/schemas/utcDateTime"
+					},
+					"links": {
+						"type": "object"
+					},
+					"payload": {
+						"type": "object"
+					},
+					"favorites": {
+						"type": "object",
+						"properties" : {
+							"account_id": {
+								"$ref": "#/components/schemas/utcDateTime"
+							}
+						}
+
+					},
+					"fingerprint": {
+						"type": "object"
+					}
+				}
+			},
+			"Success": {
+				"type": "object",
+				"properties": {
+					"base" : {
+						"type": "string",
+						"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
+					},
+					"resources": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"$ref": "#/components/schemas/uuid"
+								},
+								"type": {
+									"type": "string",
+									"enum": ["asset"]
+								},
+								"subtype": {
+									"type": "string"
+								},
+								"created": {
+									"$ref": "#/components/schemas/utcDateTime"
+								},
+								"updated": {
+									"$ref": "#/components/schemas/utcDateTime"
+								},
+								"links": {
+									"type": "object"
+								},
+								"payload": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				}
+			},
+			"SuccessQueryParams": {
+				"type": "object",
+				"properties": {
+					"base" : {
+						"type": "string",
+						"description": "Base URL that can be prepended to the 'href' values in the 'links' to produce fully qualified URLs for future queries."
+					},
+					"resources": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"$ref": "#/components/schemas/uuid"
+								},
+								"type": {
+									"type": "string",
+									"enum": ["asset"]
+								},
+								"subtype": {
+									"type": "string"
+								},
+								"created": {
+									"$ref": "#/components/schemas/utcDateTime"
+								},
+								"updated": {
+									"$ref": "#/components/schemas/utcDateTime"
+								},
+								"links": {
+									"type": "object"
+								},
+								"payload": {
+									"type": "object"
+								}
+							}
+						}
+					},
+					"errors": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"$ref": "#/components/schemas/uuid"
+								},
+								"code": {
+									"type": "integer"
+								},
+								"description": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"links": {
+						"type": "object"
+					}
+				}
+			},
 			"CatalogAccessError": {
 				"type": "object",
 				"properties": {
