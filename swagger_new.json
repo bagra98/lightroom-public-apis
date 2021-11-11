@@ -662,7 +662,7 @@
 										"$ref": "#/components/examples/ForbiddenKeyExample"
 									},
 									"ResourceExists": {
-										"$ref": "#/components/examples/AssetExistsErrorExample"
+										"$ref": "#/components/examples/ResourceExistsErrorExample"
 									},
 									"QuotaExceeded": {
 										"$ref": "#/components/examples/AssetQuotaExceededErrorExample"
@@ -942,13 +942,27 @@
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
-					"403": { "description": "The request failed due to insufficient permissions.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/ForbiddenClient/content/application~1json/schema"
-							}]}}}},
+					"403": {
+ 						"description": "The request failed due to insufficient permissions",
+ 						"content": {
+ 							"application/json": {
+ 								"schema": {
+ 									"oneOf": [
+ 										{"$ref": "#/components/schemas/ForbiddenKeyError"},
+ 										{"$ref": "#/components/schemas/ForbiddenClientError"}
+ 									]
+ 								},
+ 								"examples": {
+ 									"InvalidApiKey": {
+ 										"$ref": "#/components/examples/ForbiddenKeyExample"
+ 									},
+ 									"ForbiddenClient": {
+ 										"$ref": "#/components/examples/ForbiddenClientErrorExample"
+ 									}
+ 								}
+ 							}
+ 						}
+ 					},
 					"503": {
 						"$ref": "#/components/responses/ServiceUnavailable"
 					}
@@ -1461,13 +1475,27 @@
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
-					"403": { "description": "The request failed due to insufficient permissions.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/ForbiddenClient/content/application~1json/schema"
-							}]}}}},
+					"403": {
+ 						"description": "The request failed due to insufficient permissions",
+ 						"content": {
+ 							"application/json": {
+ 								"schema": {
+ 									"oneOf": [
+ 										{"$ref": "#/components/schemas/ForbiddenKeyError"},
+ 										{"$ref": "#/components/schemas/ForbiddenClientError"}
+ 									]
+ 								},
+ 								"examples": {
+ 									"InvalidApiKey": {
+ 										"$ref": "#/components/examples/ForbiddenKeyExample"
+ 									},
+ 									"ForbiddenClient": {
+ 										"$ref": "#/components/examples/ForbiddenClientErrorExample"
+ 									}
+ 								}
+ 							}
+ 						}
+ 					},
 					"503": {
 						"$ref": "#/components/responses/ServiceUnavailable"
 					}
@@ -1916,16 +1944,31 @@
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
-					"403": { "description": "The request failed due to insufficient permissions.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/ForbiddenExists/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/ForbiddenQuota/content/application~1json/schema"
-							}]}}}},
+					"403": {
+ 						"description": "The request failed due to insufficient permissions",
+ 						"content": {
+ 							"application/json": {
+ 								"schema": {
+ 									"oneOf": [
+ 										{"$ref": "#/components/schemas/ForbiddenKeyError"},
+ 										{"$ref": "#/components/schemas/ResourceExistsError"},
+ 										{"$ref": "#/components/schemas/QuotaExceededError"}
+ 									]
+ 								},
+ 								"examples": {
+ 									"InvalidApiKey": {
+ 										"$ref": "#/components/examples/ForbiddenKeyExample"
+ 									},
+ 									"ResourceExists": {
+ 										"$ref": "#/components/examples/ResourceExistsErrorExample"
+ 									},
+ 									"QuotaExceeded": {
+ 										"$ref": "#/components/examples/AssetQuotaExceededErrorExample"
+ 									}
+ 								}
+ 							}
+ 						}
+ 					},
 					"404": {
 						"$ref": "#/components/responses/NotFound"
 					},
@@ -2100,13 +2143,27 @@
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
-					"403": { "description": "The request failed due to insufficient permissions.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/ForbiddenKey/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/ForbiddenExists/content/application~1json/schema"
-							}]}}}},
+					"403": {
+ 						"description": "The request failed due to insufficient permissions",
+ 						"content": {
+ 							"application/json": {
+ 								"schema": {
+ 									"oneOf": [
+ 										{"$ref": "#/components/schemas/ForbiddenKeyError"},
+ 										{"$ref": "#/components/schemas/ResourceExistsError"}
+ 									]
+ 								},
+ 								"examples": {
+ 									"InvalidApiKey": {
+ 										"$ref": "#/components/examples/ForbiddenKeyExample"
+ 									},
+ 									"ResourceExists": {
+ 										"$ref": "#/components/examples/ResourceExistsErrorExample"
+ 									}
+ 								}
+ 							}
+ 						}
+ 					},
 					"415": {
 						"$ref": "#/components/responses/UnsupportedMediaType"
 					},
@@ -3966,11 +4023,16 @@
 					"description": "API Key is invalid"
 				}
 			},
-			"ForbiddenOperationExample": {
-				"summary": "Invalid API Key",
+			"ForbiddenClientErrorExample": {
+				"summary": "Forbidden Client",
 				"value": {
-					"code": 403003,
-					"description": "API Key is invalid"
+					"links": {
+ 						"/rels/client_app": {
+ 					      		"href": "<app_url> (Link to the where to find a new version of the client application)"
+ 					    	}
+ 			  		},
+ 					"code": 4999,
+ 					"description": "Upgrade required"
 				}
 			},
 			"ErrorExample": {
@@ -3980,7 +4042,7 @@
 					"description": "API Key is invalid"
 				}
 			},
-			"AssetExistsErrorExample": {
+			"ResourceExistsErrorExample": {
 				"summary": "ResourceExistsError",
 				"value": {
 					"errors": {"asset": [ "already exists"]},
@@ -4003,15 +4065,7 @@
 					"description": "Too many assets"
 					
 				}
-			},
-			"ForbiddenExample": {
-				"summary": "Forbidden",
-				"value": {
-					"code": 4300,
-					"description": "Access is forbidden"
-				}
-			},
-			
+			}
 		},
 		"schemas": {
 			"CatalogAccessError": {
@@ -4078,6 +4132,33 @@
 					}
 				}			
 			},
+			"ForbiddenClientError": {
+ 				"type": "object",
+ 				"properties": {
+ 					"code": {
+ 						"type": "integer",
+ 						"enum": [ 4999 ]
+ 					},
+ 					"description": {
+ 						"type": "string",
+ 						"enum": [ "Upgrade required" ]
+ 					},
+ 					"links": {
+ 						"type": "object",
+ 						"properties": {
+ 							"/rels/client_app": {
+ 								"type": "object",
+ 								"properties": {
+ 									"href": {
+ 										"type": "string",
+ 										"enum": ["<app_url> (Link to the where to find a new version of the client application)"]
+ 									}
+ 								}
+ 							}
+ 						}
+ 					}
+ 				}
+ 			},
 			"ForbiddenKeyError": {
 				"type": "object",
 				"properties": {
