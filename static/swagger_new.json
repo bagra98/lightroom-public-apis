@@ -629,19 +629,33 @@
 						"description": "Created"
 					},
 					"400": {
-						"description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestSubtype/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
-							}]}}}
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestGUID"},
+										{"$ref": "#/components/schemas/BadRequestJSON"},
+										{"$ref": "#/components/schemas/BadRequestSubtype"},
+										{"$ref": "#/components/schemas/BadRequestPayload"}
+									]
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/BadRequestGUIDExample"
+									},
+									"BadRequestJSON": {
+										"$ref": "#/components/examples/BadRequestJSONExample"
+									},
+									"BadRequestSubtype": {
+										"$ref": "#/components/examples/BadRequestSubtypeExample"
+									},
+									"BadRequestPayload": {
+										"$ref": "#/components/examples/BadRequestPayloadExample"
+									}
+								}
+							}
+						}
 					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
@@ -749,31 +763,51 @@
  							}
  						}
  					},
-					"400": { "description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/BadRequestAssetIds/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestGroup/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestName/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestFavorite/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestInvalidDateTime/content/application~1json/schema"
-							}]}}}},
+					"400": {
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestGUID"},
+										{"$ref": "#/components/schemas/BadRequestAssetIds"},
+										{"$ref": "#/components/schemas/BadRequestGroup"},
+										{"$ref": "#/components/schemas/BadRequestName"},
+										{"$ref": "#/components/schemas/BadRequestFavorite"},
+										{"$ref": "#/components/schemas/BadRequestMissingSubtypeWithGroupOrName"},
+										{"$ref": "#/components/schemas/BadRequestMissingSubtypeWithFavorite"},
+										{"$ref": "#/components/schemas/BadRequestInvalidDateTime"}
+									]
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/BadRequestGUIDExample"
+									},
+									"BadRequestAssetIds": {
+										"$ref": "#/components/examples/BadRequestAssetIdsExample"
+									},
+									"BadRequestGroup": {
+										"$ref": "#/components/examples/BadRequestGroupExample"
+									},
+									"BadRequestName": {
+										"$ref": "#/components/examples/BadRequestNameExample"
+									},
+									"BadRequestFavorite": {
+										"$ref": "#/components/examples/BadRequestFavoriteExample"
+									},
+									"BadRequestMissingSubtypeWithGroupOrName": {
+										"$ref": "#/components/examples/BadRequestMissingSubtypeWithGroupOrNameExample"
+									},
+									"BadRequestMissingSubtypeWithFavorite": {
+										"$ref": "#/components/examples/BadRequestMissingSubtypeWithFavoriteExample"
+									},
+									"BadRequestInvalidDateTime": {
+										"$ref": "#/components/examples/BadRequestInvalidDateTimeExample"
+									}
+								}
+							}
+						}
+					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
@@ -959,31 +993,51 @@
  							}
  						}
  					},
-					400": { "description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/BadRequestAssetIds/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestGroup/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestName/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestFavorite/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestMissingSubtypeWithGroupOrName/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestMissingSubtypeWithFavorite/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestInvalidDateTime/content/application~1json/schema"
-							}]}}}},
+					"400": {
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestGUID"},
+										{"$ref": "#/components/schemas/BadRequestAssetIds"},
+										{"$ref": "#/components/schemas/BadRequestGroup"},
+										{"$ref": "#/components/schemas/BadRequestName"},
+										{"$ref": "#/components/schemas/BadRequestFavorite"},
+										{"$ref": "#/components/schemas/BadRequestMissingSubtypeWithGroupOrName"},
+										{"$ref": "#/components/schemas/BadRequestMissingSubtypeWithFavorite"},
+										{"$ref": "#/components/schemas/BadRequestInvalidDateTime"}
+									]
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/BadRequestGUIDExample"
+									},
+									"BadRequestAssetIds": {
+										"$ref": "#/components/examples/BadRequestAssetIdsExample"
+									},
+									"BadRequestGroup": {
+										"$ref": "#/components/examples/BadRequestGroupExample"
+									},
+									"BadRequestName": {
+										"$ref": "#/components/examples/BadRequestNameExample"
+									},
+									"BadRequestFavorite": {
+										"$ref": "#/components/examples/BadRequestFavoriteExample"
+									},
+									"BadRequestMissingSubtypeWithGroupOrName": {
+										"$ref": "#/components/examples/BadRequestMissingSubtypeWithGroupOrNameExample"
+									},
+									"BadRequestMissingSubtypeWithFavorite": {
+										"$ref": "#/components/examples/BadRequestMissingSubtypeWithFavoriteExample"
+									},
+									"BadRequestInvalidDateTime": {
+										"$ref": "#/components/examples/BadRequestInvalidDateTimeExample"
+									}
+								}
+							}
+						}
+					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
@@ -1201,41 +1255,35 @@
 							}
 						}
 					},
-					"400": { "description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/BadRequestSubtype/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestMissingParameter/content/application~1json/schema"
-							},
-							{
-								"type": "object",
-								"properties": {
-									"errors": {
-										"type": "object",
-										"properties": {
-											"rendition_type": {
-												"type": "array",
-												"items": {
-													"type": "string",
-													"enum": ["not supported"]
-												}
-											}
-										}
+					"400": {
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestGUID"},
+										{"$ref": "#/components/schemas/BadRequestSubtype"},
+										{"$ref": "#/components/schemas/BadRequestMissingParameter"},
+										{"$ref": "#/components/schemas/BadRequestRenditionType"}
+									]
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/BadRequestGUIDExample"
 									},
-									"code": {
-										"type": "integer",
-										"enum": [ 1005 ]
+									"BadRequestSubtype": {
+										"$ref": "#/components/examples/BadRequestSubtypeExample"
 									},
-									"description": {
-										"type": "string",
-										"enum": [ "Input Validation Error" ]
+									"BadRequestMissingParameter": {
+										"$ref": "#/components/examples/BadRequestMissingParameterExample"
+									},
+									"BadRequestRenditionType": {
+										"$ref": "#/components/examples/BadRequestRenditionTypeExample"
 									}
 								}
-							}]}}}},
+							}
+						}
+					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
@@ -1310,35 +1358,27 @@
 					"200": {
 						"description": "Asset rendition file. Response content type : image/jpeg"
 					},
-					"400": { "description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
-						},
-							{
-								"type": "object",
-								"properties": {
-									"errors": {
-										"type": "object",
-										"properties": {
-											"rendition_type": {
-												"type": "array",
-												"items": {
-													"type": "string",
-													"enum": ["not supported"]
-												}
-											}
-										}
+					"400": {
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestGUID"},
+										{"$ref": "#/components/schemas/BadRequestRenditionType"}
+									]
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/BadRequestGUIDExample"
 									},
-									"code": {
-										"type": "integer",
-										"enum": [ 1005 ]
-									},
-									"description": {
-										"type": "string",
-										"enum": [ "Input Validation Error" ]
+									"BadRequestRenditionType": {
+										"$ref": "#/components/examples/BadRequestRenditionTypeExample"
 									}
 								}
-							}]}}}},
+							}
+						}
+					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
@@ -1440,19 +1480,35 @@
 					"201": {
 						"description": "Created"
 					},
-					"400": { "description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestGUID/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestSubtype/content/application~1json/schema"
-							},
-							{
-								"$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
-							}]}}}},
+					"400": {
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestGUID"},
+										{"$ref": "#/components/schemas/BadRequestSubtype"},
+										{"$ref": "#/components/schemas/BadRequestJSON"},
+										{"$ref": "#/components/schemas/BadRequestPayload"}
+									]
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/BadRequestGUIDExample"
+									},
+									"BadRequestSubtype": {
+										"$ref": "#/components/examples/BadRequestSubtypeExample"
+									},
+									"BadRequestJSON": {
+										"$ref": "#/components/examples/BadRequestJSONExample"
+									},
+									"BadRequestPayload": {
+										"$ref": "#/components/examples/BadRequestPayloadExample"
+									}
+								}
+							}
+						}
+					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
@@ -1645,13 +1701,27 @@
 					"201": {
 						"description": "Created"
 					},
-					"400": { "description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
-							}]}}}},
+					"400": {
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestJSON"},
+										{"$ref": "#/components/schemas/BadRequestPayload"}
+									]
+								},
+								"examples": {
+									"BadRequestJSON": {
+										"$ref": "#/components/examples/BadRequestJSONExample"
+									},
+									"BadRequestPayload": {
+										"$ref": "#/components/examples/BadRequestPayloadExample"
+									}
+								}
+							}
+						}
+					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
@@ -1905,13 +1975,27 @@
 					"204": {
 						"description": "No Content"
 					},
-					"400": { "description": "The request failed due to an invalid input.",
-						"content": { "application/json": { "schema": { "anyOf": [{
-							"$ref": "#/components/responses/BadRequestJSON/content/application~1json/schema"
-						},
-							{
-								"$ref": "#/components/responses/BadRequestPayload/content/application~1json/schema"
-							}]}}}},
+					"400": {
+						"description": "The request failed due to an invalid input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{"$ref": "#/components/schemas/BadRequestJSON"},
+										{"$ref": "#/components/schemas/BadRequestPayload"}
+									]
+								},
+								"examples": {
+									"BadRequestJSON": {
+										"$ref": "#/components/examples/BadRequestJSONExample"
+									},
+									"BadRequestPayload": {
+										"$ref": "#/components/examples/BadRequestPayloadExample"
+									}
+								}
+							}
+						}
+					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
@@ -3907,11 +3991,108 @@
  					"description": "Upgrade required"
 				}
 			},
-			"ErrorExample": {
-				"summary": "Error",
+			"BadRequestGUIDExample": {
+				"summary": "BadRequestGUID",
 				"value": {
-					"code": 403003,
-					"description": "API Key is invalid"
+					"errors": {"<param_name>": [ "Must be a valid GUID"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestJSONExample": {
+				"summary": "BadRequestJSON",
+				"value": {
+					"errors": {"<param_name>": [ "Must be a valid JSON"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestSubtypeExample": {
+				"summary": "BadRequestSubtype",
+				"value": {
+					"errors": {"<subtype>": [ "is invalid"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestPayloadExample": {
+				"summary": "BadRequestPayload",
+				"value": {
+					"errors": {"payload.<key>.<subkey>": [ "invalid"]},
+					"code": 1030,
+					"description": "Payload Validation Error"
+				}
+			},
+			"BadRequestAssetIdsExample": {
+				"summary": "ParamsWithAssetIds",
+				"value": {
+					"errors": {"<param_name>": [ "not allowed with asset_ids parameter"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestGroupExample": {
+				"summary": "BadRequestGroup",
+				"value": {
+					"errors": {"group": [ "group not expected for each given subtype" ]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestNameExample": {
+				"summary": "BadRequestName",
+				"value": {
+					"errors": {"name": [ "name not expected for each given subtype"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestFavoriteExample": {
+				"summary": "BadRequestFavorite",
+				"value": {
+					"errors": {"favorite": [ "favorite query param can only be true. favorite=false not supported"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestMissingParameterExample": {
+				"summary": "MissingParameter",
+				"value": {
+					"errors": {"parameter": [ "must be specified"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestMissingSubtypeWithGroupOrNameExample": {
+				"summary": "MissingSubtypeWithGroupOrName",
+				"value": {
+					"errors": {"subtype": [ "subtype value expected with group or name"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestMissingSubtypeWithFavoriteExample": {
+				"summary": "MissingSubtypeWithFavorite",
+				"value": {
+					"errors": {"subtype": [ "subtype value expected with favorite"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestInvalidDateTimeExample": {
+				"summary": "InvalidDateTime",
+				"value": {
+					"errors": {"<param_name>": [ "must be a valid XML Schema dateTime"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"BadRequestRenditionTypeExample": {
+				"summary": "RenditionTypeNotSupported",
+				"value": {
+					"errors": {"rendition_type": [ "not supported"]},
+					"code": 1005,
+					"description": "Input Validation Error"
 				}
 			},
 			"ResourceExistsErrorExample": {
@@ -4109,6 +4290,331 @@
 					},
 					"links": {
 						"type": "object"
+					}
+				}
+			},
+			"BadRequestGUID": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"<param_name>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "Must be a valid GUID"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestJSON": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"body": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "Must be valid JSON"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestSubtype": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"<subtype>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "is invalid"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestPayload": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"payload.<key>.<subkey>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "invalid", "disallowed", "required" ]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1030 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Payload Validation Error" ]
+					}
+				}
+			},
+			"BadRequestAssetIds": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"<param_name>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "not allowed with asset_ids parameter"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestGroup": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"group": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "group not expected for each given subtype"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestName": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": ["name not expected for each given subtype"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestFavorite": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"favorite": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": ["favorite query param can only be true. favorite=false not supported"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestMissingParameter": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"parameter": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": ["must be specified"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestMissingSubtypeWithGroupOrName": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"subtype": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": ["subtype value expected with group or name"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestMissingSubtypeWithFavorite": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"subtype": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": ["subtype value expected with favorite"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}
+			},
+			"BadRequestInvalidDateTime": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"<param_name>": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": [ "must be a valid XML Schema dateTime"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
+					}
+				}	
+			},
+			"BadRequestRenditionType": {
+				"type": "object",
+				"properties": {
+					"errors": {
+						"type": "object",
+						"properties": {
+							"rendition_type": {
+								"type": "array",
+								"items": {
+									"type": "string",
+									"enum": ["not supported"]
+								}
+							}
+						}
+					},
+					"code": {
+						"type": "integer",
+						"enum": [ 1005 ]
+					},
+					"description": {
+						"type": "string",
+						"enum": [ "Input Validation Error" ]
 					}
 				}
 			},
