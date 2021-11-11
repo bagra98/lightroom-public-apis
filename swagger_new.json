@@ -945,7 +945,7 @@
  								"schema": {
  									"oneOf": [
  										{"$ref": "#/components/schemas/Success"},
- 										{"$ref": "#/components/schemas/SuccessQueryParam"}
+ 										{"$ref": "#/components/schemas/SuccessAssetIdsQueryParam"}
  									]
  								},
  								"examples": {
@@ -3752,7 +3752,7 @@
 				}
 			},
 			"SuccessQueryParamExample": {
-				"summary": "Asset_ids query param present",
+				"summary": "Success - Asset_ids query param present",
 				"value": {
 					"base": "<base_url>",
 					"resources": [
@@ -4053,7 +4053,7 @@
 					}
 				}
 			},
-			"SuccessQueryParam": {
+			"SuccessAssetIdsQueryParam": {
 				"type": "object",
 				"properties": {
 					"base" : {
