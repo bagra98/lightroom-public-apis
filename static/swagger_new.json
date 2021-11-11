@@ -4053,7 +4053,7 @@
 					}
 				}
 			},
-			"SuccessQueryParams": {
+			"SuccessQueryParam": {
 				"type": "object",
 				"properties": {
 					"base" : {
