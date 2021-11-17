@@ -4005,7 +4005,7 @@
 			"BadRequestJSONExample": {
 				"summary": "BadRequestJSON",
 				"value": {
-					"errors": {"<param_name>": [ "Must be a valid JSON"]},
+					"errors": {"body": [ "Must be a valid JSON"]},
 					"code": 1005,
 					"description": "Input Validation Error"
 				}
@@ -4013,7 +4013,7 @@
 			"BadRequestSubtypeExample": {
 				"summary": "BadRequestSubtype",
 				"value": {
-					"errors": {"<subtype>": [ "is invalid"]},
+					"errors": {"random": [ "is invalid"]},
 					"code": 1005,
 					"description": "Input Validation Error"
 				}
@@ -4021,7 +4021,7 @@
 			"BadRequestPayloadExample": {
 				"summary": "BadRequestPayload",
 				"value": {
-					"errors": {"payload.<key>.<subkey>": [ "invalid"]},
+					"errors": {"payload.importSource.importTimestamp": [ "invalid"]},
 					"code": 1030,
 					"description": "Payload Validation Error"
 				}
@@ -4085,7 +4085,7 @@
 			"BadRequestInvalidDateTimeExample": {
 				"summary": "InvalidDateTime",
 				"value": {
-					"errors": {"<param_name>": [ "must be a valid XML Schema dateTime"]},
+					"errors": {"updated_since": [ "must be a valid XML Schema dateTime"]},
 					"code": 1005,
 					"description": "Input Validation Error"
 				}
