@@ -2869,7 +2869,7 @@
 							}
 						},
 						"examples": { 
-							"$ref":"#/components/examples/BadRequestJSONExample" 
+							"BadRequestGUID": { "$ref":"#/components/examples/BadRequestGUIDExample" }
 						}
 					}
 				}
