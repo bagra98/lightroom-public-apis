@@ -250,7 +250,19 @@
 						}
 					},
 					"400": {
-						"$ref": "#/components/responses/BadRequestGUID"
+						"description": "The request failed due to an invalid resource identifier.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestGUID"
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/AccountBadRequestGUIDExample"
+									}
+								}
+							}
+						}
 					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
@@ -503,7 +515,19 @@
 						}
 					},
 					"400": {
-						"$ref": "#/components/responses/BadRequestGUID"
+						"description": "The request failed due to an invalid resource identifier.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestGUID"
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/CatalogBadRequestGUIDExample"
+									}
+								}
+							}
+						}
 					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
@@ -1180,7 +1204,19 @@
 						"description": "Created"
 					},
 					"400": {
-						"$ref": "#/components/responses/BadRequestGUID"
+						"description": "The request failed due to an invalid resource identifier.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestGUID"
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/AssetBadRequestGUIDExample"
+									}
+								}
+							}
+						}
 					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
@@ -1670,7 +1706,19 @@
 						"description": "External XMP Develop Setting file. Content type of the response is application/rdf+xml."
 					},
 					"400": {
-						"$ref": "#/components/responses/BadRequestGUID"
+						"description": "The request failed due to an invalid resource identifier.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestGUID"
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/AssetBadRequestGUIDExample"
+									}
+								}
+							}
+						}
 					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
@@ -2317,7 +2365,19 @@
 
 					},
 					"400": {
-						"$ref": "#/components/responses/BadRequestGUID"
+						"description": "The request failed due to an invalid resource identifier.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestGUID"
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/CatalogBadRequestGUIDExample"
+									}
+								}
+							}
+						}
 					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
@@ -2525,7 +2585,19 @@
 
 					},
 					"400": {
-						"$ref": "#/components/responses/BadRequestGUID"
+						"description": "The request failed due to an invalid resource identifier.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestGUID"
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/AlbumBadRequestGUIDExample"
+									}
+								}
+							}
+						}
 					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
@@ -2927,7 +2999,19 @@
 						}
 					},
 					"400":{
-						"$ref":"#/components/responses/BadRequestGUID"
+						"description": "The request failed due to an invalid resource identifier.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestGUID"
+								},
+								"examples": {
+									"BadRequestGUID": {
+										"$ref": "#/components/examples/AlbumBadRequestGUIDExample"
+									}
+								}
+							}
+						}
 					},
 					"401":{
 						"$ref":"#/components/responses/Unauthorized"
