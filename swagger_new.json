@@ -249,27 +249,27 @@
 							}
 						}
 					},
-					"400": {
-						"description": "The request failed due to an invalid resource identifier.",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/BadRequestGUID"
-								},
-								"examples": {
-									"BadRequestGUID": {
-										"$ref": "#/components/examples/AccountBadRequestGUIDExample"
-									}
-								}
-							}
-						}
-					},
 					"401": {
 						"$ref": "#/components/responses/Unauthorized"
 					},
 					"403": {
 						"$ref": "#/components/responses/ForbiddenKey"
 					},
+					"404": {
+ 						"description": "The request failed because the resource being requested does not exist.",
+ 						"content": {
+ 							"application/json": {
+ 								"schema": {
+ 									"$ref": "#/components/schemas/NotFound"
+ 								},
+ 								"examples": {
+ 									"ResourceNotFound": {
+ 										"$ref": "#/components/examples/AccountNotFoundExample"
+ 									}
+ 								}
+ 							}
+ 						}
+ 					},
 					"503": {
 						"$ref": "#/components/responses/ServiceUnavailable"
 					}
