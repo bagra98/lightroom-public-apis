@@ -1824,7 +1824,7 @@
  										"$ref": "#/components/examples/ForbiddenKeyExample"
  									},
  									"ResourceExists": {
- 										"$ref": "#/components/examples/ResourceExistsErrorExample"
+ 										"$ref": "#/components/examples/AlbumResourceExistsErrorExample"
  									}
  								}
  							}
@@ -3786,6 +3786,10 @@
 				"value": {
 					"base": "<base_url>",
 					"id": "<asset_id>",
+					"type": "asset",
+					"subtype": "video",
+					"created": "<created_date>",
+					"updated": "<updated_date>",
 					"links": {
 						"self": {
 							"href": "assets/<asset_id>"
@@ -3805,9 +3809,6 @@
 							"fileSize": "<external_xmp_develop_setting_file_size>"
 						}
 					},
-					"created": "<created_date>",
-					"updated": "<updated_date>",
-					"subtype": "video",
 					"unshareable": "<unshareable>",
 					"payload": {
 						"captureDate": "<image_capture_date>",
@@ -4145,7 +4146,7 @@
 			"BadRequestSubtypeExample": {
 				"summary": "BadRequestSubtype",
 				"value": {
-					"errors": {"random": [ "is invalid"]},
+					"errors": {"subtype": [ "is invalid"]},
 					"code": 1005,
 					"description": "Input Validation Error"
 				}
@@ -4234,6 +4235,14 @@
 				"summary": "ResourceExistsError",
 				"value": {
 					"errors": {"asset": [ "already exists"]},
+					"code": 1002,
+					"description": "Resource already exists"
+				}
+			},
+			"AlbumResourceExistsErrorExample": {
+				"summary": "ResourceExistsError",
+				"value": {
+					"errors": {"album": [ "already exists"]},
 					"code": 1002,
 					"description": "Resource already exists"
 				}
