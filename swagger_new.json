@@ -666,7 +666,7 @@
 								},
 								"examples": {
 									"BadRequestGUID": {
-										"$ref": "#/components/examples/BadRequestGUIDExample"
+										"$ref": "#/components/examples/AssetBadRequestGUIDExample"
 									},
 									"BadRequestJSON": {
 										"$ref": "#/components/examples/BadRequestJSONExample"
@@ -817,7 +817,7 @@
 								},
 								"examples": {
 									"BadRequestGUID": {
-										"$ref": "#/components/examples/BadRequestGUIDExample"
+										"$ref": "#/components/examples/AssetBadRequestGUIDExample"
 									},
 									"BadRequestAssetIds": {
 										"$ref": "#/components/examples/BadRequestAssetIdsExample"
@@ -1047,7 +1047,7 @@
 								},
 								"examples": {
 									"BadRequestGUID": {
-										"$ref": "#/components/examples/BadRequestGUIDExample"
+										"$ref": "#/components/examples/AssetBadRequestGUIDExample"
 									},
 									"BadRequestAssetIds": {
 										"$ref": "#/components/examples/BadRequestAssetIdsExample"
@@ -1305,7 +1305,7 @@
 								},
 								"examples": {
 									"BadRequestGUID": {
-										"$ref": "#/components/examples/BadRequestGUIDExample"
+										"$ref": "#/components/examples/AssetBadRequestGUIDExample"
 									},
 									"BadRequestSubtype": {
 										"$ref": "#/components/examples/BadRequestSubtypeExample"
@@ -1418,7 +1418,7 @@
 								},
 								"examples": {
 									"BadRequestGUID": {
-										"$ref": "#/components/examples/BadRequestGUIDExample"
+										"$ref": "#/components/examples/RenditionBadRequestGUIDExample"
 									},
 									"BadRequestRenditionType": {
 										"$ref": "#/components/examples/BadRequestRenditionTypeExample"
@@ -1554,7 +1554,7 @@
 								},
 								"examples": {
 									"BadRequestGUID": {
-										"$ref": "#/components/examples/BadRequestGUIDExample"
+										"$ref": "#/components/examples/AssetBadRequestGUIDExample"
 									},
 									"BadRequestSubtype": {
 										"$ref": "#/components/examples/BadRequestSubtypeExample"
@@ -3001,7 +3001,7 @@
 							}
 						},
 						"examples": { 
-							"BadRequestGUID": { "$ref":"#/components/examples/BadRequestGUIDExample" }
+							"BadRequestGUID": { "$ref":"#/components/examples/AssetBadRequestGUIDExample" }
 						}
 					}
 				}
@@ -4127,10 +4127,42 @@
  					"description": "Upgrade required"
 				}
 			},
-			"BadRequestGUIDExample": {
+			"AssetBadRequestGUIDExample": {
 				"summary": "BadRequestGUID",
 				"value": {
-					"errors": {"id": [ "Must be a valid GUID"]},
+					"errors": {"asset_id": [ "Must be a valid GUID"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"AccountBadRequestGUIDExample": {
+				"summary": "BadRequestGUID",
+				"value": {
+					"errors": {"account_id": [ "Must be a valid GUID"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"CatalogBadRequestGUIDExample": {
+				"summary": "BadRequestGUID",
+				"value": {
+					"errors": {"catalog_id": [ "Must be a valid GUID"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"AlbumBadRequestGUIDExample": {
+				"summary": "BadRequestGUID",
+				"value": {
+					"errors": {"album_id": [ "Must be a valid GUID"]},
+					"code": 1005,
+					"description": "Input Validation Error"
+				}
+			},
+			"RenditionBadRequestGUIDExample": {
+				"summary": "BadRequestGUID",
+				"value": {
+					"errors": {"rendition_id": [ "Must be a valid GUID"]},
 					"code": 1005,
 					"description": "Input Validation Error"
 				}
