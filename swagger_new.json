@@ -4212,7 +4212,7 @@
 				}
 			},
 			"AssetBadRequestGUIDExample": {
-				"summary": "BadRequestGUID",
+				"summary": "InvalidRequestGUID",
 				"value": {
 					"errors": {"asset_id": [ "Must be a valid GUID"]},
 					"code": 1005,
@@ -4220,7 +4220,7 @@
 				}
 			},
 			"AccountBadRequestGUIDExample": {
-				"summary": "BadRequestGUID",
+				"summary": "InvalidRequestGUID",
 				"value": {
 					"errors": {"account_id": [ "Must be a valid GUID"]},
 					"code": 1005,
@@ -4228,7 +4228,7 @@
 				}
 			},
 			"CatalogBadRequestGUIDExample": {
-				"summary": "BadRequestGUID",
+				"summary": "InvalidRequestGUID",
 				"value": {
 					"errors": {"catalog_id": [ "Must be a valid GUID"]},
 					"code": 1005,
@@ -4236,7 +4236,7 @@
 				}
 			},
 			"AlbumBadRequestGUIDExample": {
-				"summary": "BadRequestGUID",
+				"summary": "InvalidRequestGUID",
 				"value": {
 					"errors": {"album_id": [ "Must be a valid GUID"]},
 					"code": 1005,
@@ -4244,7 +4244,7 @@
 				}
 			},
 			"RenditionBadRequestGUIDExample": {
-				"summary": "BadRequestGUID",
+				"summary": "InvalidRequestGUID",
 				"value": {
 					"errors": {"rendition_id": [ "Must be a valid GUID"]},
 					"code": 1005,
@@ -4252,7 +4252,7 @@
 				}
 			},
 			"BadRequestJSONExample": {
-				"summary": "BadRequestJSON",
+				"summary": "InvalidRequestJSON",
 				"value": {
 					"errors": {"body": [ "Must be a valid JSON"]},
 					"code": 1005,
@@ -4260,7 +4260,7 @@
 				}
 			},
 			"BadRequestSubtypeExample": {
-				"summary": "BadRequestSubtype",
+				"summary": "InvalidRequestSubtype",
 				"value": {
 					"errors": {"subtype": [ "is invalid"]},
 					"code": 1005,
@@ -4268,7 +4268,7 @@
 				}
 			},
 			"BadRequestPayloadExample": {
-				"summary": "BadRequestPayload",
+				"summary": "InvalidRequestPayload",
 				"value": {
 					"errors": {"payload.importSource.importTimestamp": [ "invalid"]},
 					"code": 1030,
@@ -4284,7 +4284,7 @@
 				}
 			},
 			"BadRequestGroupExample": {
-				"summary": "BadRequestGroup",
+				"summary": "InvalidRequestGroup",
 				"value": {
 					"errors": {"group": [ "group not expected for each given subtype" ]},
 					"code": 1005,
@@ -4292,7 +4292,7 @@
 				}
 			},
 			"BadRequestNameExample": {
-				"summary": "BadRequestName",
+				"summary": "InvalidRequestName",
 				"value": {
 					"errors": {"name": [ "name not expected for each given subtype"]},
 					"code": 1005,
@@ -4300,7 +4300,7 @@
 				}
 			},
 			"BadRequestFavoriteExample": {
-				"summary": "BadRequestFavorite",
+				"summary": "InvalidRequestFavorite",
 				"value": {
 					"errors": {"favorite": [ "favorite query param can only be true. favorite=false not supported"]},
 					"code": 1005,
