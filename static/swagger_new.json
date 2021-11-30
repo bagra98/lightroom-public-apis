@@ -270,21 +270,6 @@
 					"403": {
 						"$ref": "#/components/responses/ForbiddenKey"
 					},
-					"404": {
-						"description": "The request failed because the resource being requested does not exist.",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/NotFound"
-								},
-								"examples": {
-									"ResourceNotFound": {
-										"$ref": "#/components/examples/AccountNotFoundExample"
-									}
-								}
-							}
-						}
-					},
 					"503": {
 						"$ref": "#/components/responses/ServiceUnavailable"
 					}
@@ -509,21 +494,6 @@
 												"templated":true
 											}
 										}
-									}
-								}
-							}
-						}
-					},
-					"400": {
-						"description": "The request failed due to an invalid resource identifier.",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/BadRequestGUID"
-								},
-								"examples": {
-									"BadRequestGUID": {
-										"$ref": "#/components/examples/CatalogBadRequestGUIDExample"
 									}
 								}
 							}
@@ -4215,14 +4185,6 @@
 				"summary": "InvalidRequestGUID",
 				"value": {
 					"errors": {"asset_id": [ "Must be a valid GUID"]},
-					"code": 1005,
-					"description": "Input Validation Error"
-				}
-			},
-			"AccountBadRequestGUIDExample": {
-				"summary": "InvalidRequestGUID",
-				"value": {
-					"errors": {"account_id": [ "Must be a valid GUID"]},
 					"code": 1005,
 					"description": "Input Validation Error"
 				}
